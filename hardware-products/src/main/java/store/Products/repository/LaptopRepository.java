@@ -20,11 +20,11 @@ public class LaptopRepository {
     public LaptopRepository(){
 
 
-        laptops.add(new Laptop(1609229152, ProductType.Laptop,"Laptop ASUS Gaming 15.6'' ROG Strix G G531GT", LaptopType.Gaming,"Intel® Core™ i7-9750H","GeForce GTX 1650","8GB DDR4","512Gb SSD",4999.99, null));
-        laptops.add(new Laptop(1491888111,  ProductType.Laptop,"Laptop ASUS Gaming 15.6'' ROG Strix G G531GT", LaptopType.Gaming,"Intel® Core™ i7-9750H","GeForce GTX 1650","8GB DDR4","512Gb SSD",4999.99, null));
-        laptops.add(new Laptop(1608595386,  ProductType.Laptop,"Laptop Lenovo Gaming 15.6'' IdeaPad 3 15IMH05", LaptopType.Gaming,"Intel® Core™ i5-10300H","GeForce GTX 1650 Ti 4GB","8GB DDR4","512GB SSD",3989.99, null));
-        laptops.add(new Laptop(559695151,  ProductType.Laptop,"Laptop ASUS Gaming 15.6'' ROG Strix G G531GT", LaptopType.Gaming,"Intel® Core™ i7-9750H","GeForce GTX 1650","8GB DDR4","512Gb SSD",4999.99, null));
-        laptops.add(new Laptop(1646484793,  ProductType.Laptop,"Laptop Lenovo Gaming 15.6'' IdeaPad 3 15IMH05", LaptopType.Gaming,"Intel® Core™ i5-10300H","GeForce GTX 1650 Ti 4GB","8GB DDR4","512GB SSD",3989.99, null));
+        laptops.add(new Laptop(1609229152, ProductType.Laptop,"Laptop ASUS Gaming 15.6'' ROG Strix G G531GT", LaptopType.Gaming,"Intel® Core™ i7-9750H","NVIDIA GeForce GTX 1650","8GB RAM","512GB SSD",4999.99, null));
+        laptops.add(new Laptop(1491888111,  ProductType.Laptop,"Laptop Lenovo Gaming 15.6'' IdeaPad 3 15IMH05, FHD IPS", LaptopType.Gaming,"Intel® Core™ i7-10750H","NVIDIA GeForce GTX 1650","8GB RAM","512GB SSD",4189.99, null));
+        laptops.add(new Laptop(1608595386,  ProductType.Laptop,"Laptop ASUS Gaming 15.6'' ROG Strix G15 G512LV, FHD 240Hz", LaptopType.Gaming,"Intel® Core™ i5-10300H","NVIDIA GeForce RTX 2060 6GB","16GB RAM","1TB SSD",6198.99, null));
+        laptops.add(new Laptop(559695151,  ProductType.Laptop,"Laptop Lenovo 15.6'' V15 IIL, FHD", LaptopType.Business,"Intel® Core™ i7-1065G7 ","Intel Iris Plus","12 GB RAM","512GB SSD",3998.99, null));
+        laptops.add(new Laptop(1646484793,  ProductType.Laptop,"Laptop Lenovo 15.6'' ThinkBook 15 G2 ARE, FHD", LaptopType.Business,"AMD Ryzen™ 3 4300U","AMD Radeon","8GB RAM","256GB SSD",3000.99, null));
 
     }
 

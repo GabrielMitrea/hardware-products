@@ -19,11 +19,11 @@ public class GraphicCardRepository {
     public GraphicCardRepository(){
 
 
-        graphicCards.add(new GraphicCard(123456789,ProductType.GraphicCard,"m1","s1","t1","i1",24.99,null));
-        graphicCards.add(new GraphicCard(214142516, ProductType.GraphicCard,"m2","s2","t2","i2",20.00,null));
-        graphicCards.add(new GraphicCard(863725451, ProductType.GraphicCard,"m3","s3","t3","i3",21.31,null));
-        graphicCards.add(new GraphicCard(941536131, ProductType.GraphicCard,"m4","s4","t4","i4",500.21,null));
-        graphicCards.add(new GraphicCard(214124125, ProductType.GraphicCard,"m5","s5","t5","i5",320.99,null));
+        graphicCards.add(new GraphicCard(123456789,ProductType.GraphicCard,"Placa video XFX Radeon RX 580 GTS XXX Edition","8 GB","GDDR5","PCI Express x16 3.0",1064.99,null));
+        graphicCards.add(new GraphicCard(214142516, ProductType.GraphicCard,"Placa video Sapphire Radeon RX 550 PULSE","4 GB","GDDR5","PCI Express x16 3.0",439.99,null));
+        graphicCards.add(new GraphicCard(863725451, ProductType.GraphicCard,"Placa video ASRock Radeon RX 5600 XT Challenger D OC","6 GB","GDDR6","PCI Express x16 4.0",1549.99,null));
+        graphicCards.add(new GraphicCard(941536131, ProductType.GraphicCard,"Placa video PowerColor Radeon RX 5500 XT","8 GB","GDDR6","PCI Express x16 4.0",1029.99,null));
+        graphicCards.add(new GraphicCard(214124125, ProductType.GraphicCard,"Placa video MSI GeForce GT 730 ","4 GB","DDR3","PCI express x16 2.0",344.99,null));
 
     }
 
