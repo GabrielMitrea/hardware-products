@@ -24,10 +24,10 @@ public class MouseRepository {
 
         Mouse m1=new Mouse(213213121,ProductType.Mouse,"Mouse Gaming Razer Basilisk Ultimate", MouseType.Wireless,"20000 DPI","USB", 539.99,null);
         Mouse m2=new Mouse(201605175,ProductType.Mouse,"Mouse Gaming Logitech G102 Lightsync",MouseType.Wired,"8000 DPI","USB",124.99,null);
-        Mouse m3=new Mouse(202759652,ProductType.Mouse,"bbbbbb", MouseType.Wireless,"15000 DPI","USB", 539.99,null);
-        Mouse m4=new Mouse(201627595,ProductType.Mouse,"safasfa", MouseType.Wired,"2000 DPI","USB", 539.99,null);
-        Mouse m5=new Mouse(201905313,ProductType.Mouse,"gege", MouseType.Wired,"20000 DPI","USB", 539.99,null);
-        Mouse m6=new Mouse(201190545,ProductType.Mouse,"baba", MouseType.Wired,"20000 DPI","USB", 539.99,null);
+        Mouse m3=new Mouse(202759652,ProductType.Mouse,"Mouse Microsoft Mobile 1850 for business Black", MouseType.Wireless,"800 DPI","USB", 53.99,null);
+        Mouse m4=new Mouse(201627595,ProductType.Mouse,"Mouse Gaming ASUS TUF Gaming M3 RGB", MouseType.Wired,"8000 DPI","USB", 159.99,null);
+        Mouse m5=new Mouse(201905313,ProductType.Mouse,"Mouse Gaming ASUS ROG Gladius II Origin", MouseType.Wired,"12000 DPI","USB", 269.99,null);
+        Mouse m6=new Mouse(201190545,ProductType.Mouse,"Mouse Gaming Trust GXT 105 Izza", MouseType.Wired,"2400 DPI","USB", 43.99,null);
         mice.add(m1);
         mice.add(m2);
         mice.add(m3);

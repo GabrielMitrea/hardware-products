@@ -21,11 +21,11 @@ public class HeadsetRepository {
 
 
 
-        Headset h1=new Headset(214124124, ProductType.Headset, HeadsetType.Gaming,"n1","t1","s1","c1",21.13,null);
-        Headset h2=new Headset(125452135, ProductType.Headset, HeadsetType.Business,"n2","t2","s2","c2",21.13,null);
-        Headset h3=new Headset(165452352, ProductType.Headset, HeadsetType.Gaming,"n3","t3","s3","c3",21.13,null);
-        Headset h4=new Headset(512534256, ProductType.Headset, HeadsetType.Business,"n4","t4","s4","c4",21.13,null);
-        Headset h5=new Headset(215421551, ProductType.Headset, HeadsetType.Gaming,"n5","t5","s5","c5",21.13,null);
+        Headset h1=new Headset(214124124, ProductType.Headset, HeadsetType.Gaming,"Casti Trust GXT 450 Blizz RGB 7.1","Wired","7.1","USB",164.99,null);
+        Headset h2=new Headset(125452135, ProductType.Headset, HeadsetType.Gaming,"Casti HyperX Cloud Stinger Core 7.1 ","Wireless","7.1","Wireless",349.99,null);
+        Headset h3=new Headset(165452352, ProductType.Headset, HeadsetType.Business,"AUDIO TECHNICA ATH-M20X","Wired","Stereo","Jack",120.99,null);
+        Headset h4=new Headset(512534256, ProductType.Headset, HeadsetType.Business,"Casti Microsoft LifeChat LX-4000","Wired","Stereo","Jack",200.00,null);
+        Headset h5=new Headset(215421551, ProductType.Headset, HeadsetType.Gaming,"Casti HyperX Cloud Alpha S","Wired","7.1","USB",439.99,null);
         headsets.add(h1);
         headsets.add(h2);
         headsets.add(h3);

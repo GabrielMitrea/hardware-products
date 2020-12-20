@@ -25,12 +25,12 @@ public class KeyboardRepository {
         KeyboardReview kr1=new KeyboardReview("Gabi","Very nice product");
         keyboardReview.add(kr1);
 
-        Keyboard k1=new Keyboard(214124214, ProductType.Keyboard,"t1",KeyboardType.Wireless,"Da","Nu", 209.99,null);
-        Keyboard k2=new Keyboard(525762431, ProductType.Keyboard,"t2",KeyboardType.Wired,"Da","Nu", 500.12,keyboardReview);
-        Keyboard k3=new Keyboard(352352157, ProductType.Keyboard,"t3",KeyboardType.Wireless,"Nu","Nu", 530.00,null);
-        Keyboard k4=new Keyboard(532523523, ProductType.Keyboard,"t4",KeyboardType.Wired,"Nu","Nu", 99.00,null);
-        Keyboard k5=new Keyboard(743571123, ProductType.Keyboard,"t5",KeyboardType.Wireless,"Da","Da", 70.89,null);
-        Keyboard k6=new Keyboard(235412541, ProductType.Keyboard,"t6",KeyboardType.Wired,"Da","Da", 320.00,null);
+        Keyboard k1=new Keyboard(214124214, ProductType.Keyboard,"Tastatura Gaming Razer Ornata V2",KeyboardType.Wired,"Da","Da", 294.99,null);
+        Keyboard k2=new Keyboard(525762431, ProductType.Keyboard,"astatura Gaming T-Dagger Bermuda TGK312 ",KeyboardType.Wired,"Da","Da", 239.99,keyboardReview);
+        Keyboard k3=new Keyboard(352352157, ProductType.Keyboard,"Tastatura cu fir MYRIA MY8518",KeyboardType.Wired,"Nu","Nu", 39.90,null);
+        Keyboard k4=new Keyboard(532523523, ProductType.Keyboard,"Tastatura Gaming MARVO K629G",KeyboardType.Wired,"Nu","Nu", 99.00,null);
+        Keyboard k5=new Keyboard(743571123, ProductType.Keyboard,"Tastatura Gaming Logitech G915 LIGHTSPEED ",KeyboardType.Wireless,"Da","Da", 1130.00,null);
+        Keyboard k6=new Keyboard(235412541, ProductType.Keyboard,"Tastatura Gaming Logitech G613 ",KeyboardType.Wireless,"Nu","Da", 649.99,null);
         keyboards.add(k1);
         keyboards.add(k2);
         keyboards.add(k3);
