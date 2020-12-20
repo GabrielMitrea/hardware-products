@@ -1,28 +1,39 @@
-package store.Products.model.products;
+package store.Products.entities.products;
 
-import store.Products.model.ProductCategory;
-import store.Products.model.reviews.ProcessorReview;
+import store.Products.entities.reviews.ProcessorReview;
+import store.Products.entities.types.ProductType;
 
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
 import java.util.List;
 
 public class Processor {
 
-    private long id;
-    private ProductCategory catergory;
+    private long processorId;
+    @NotNull(message = "Category cannot be null")
+    private ProductType category;
+    @NotNull(message = "Model name cannot be null")
     private String modelName;
+    @NotNull(message = "Core cannot be null")
     private String core;
+    @NotNull(message = "Frequency cannot be null")
     private String frequency;
+    @NotNull(message = "Socket cannot be null")
     private String socket;
+    @NotNull(message = "Series cannot be null")
     private String series;
+    @NotNull(message = "Manufacturing technology cannot be null")
     private String manufacturingTechnology;
+    @NotNull(message = "Price cannot be null")
+    @Min(1)
     private Double price;
     private List<ProcessorReview> processorReview;
 
     public Processor(){}
 
-    public Processor(long id,ProductCategory catergory, String modelName, String core, String frequency, String socket, String series, String manufacturingTechnology, Double price,List<ProcessorReview> processorReview) {
-        this.id=id;
-        this.catergory=catergory;
+    public Processor(long processorId, ProductType category, String modelName, String core, String frequency, String socket, String series, String manufacturingTechnology, Double price, List<ProcessorReview> processorReview) {
+        this.processorId=processorId;
+        this.category=category;
         this.modelName = modelName;
         this.core = core;
         this.frequency = frequency;
@@ -33,20 +44,20 @@ public class Processor {
         this.processorReview=processorReview;
     }
 
-    public long getId() {
-        return id;
+    public long getProcessorId() {
+        return processorId;
     }
 
-    public void setId(long id) {
-        this.id = id;
+    public void setProcessorId(long processorId) {
+        this.processorId = processorId;
     }
 
-    public ProductCategory getCatergory() {
-        return catergory;
+    public ProductType getCategory() {
+        return category;
     }
 
-    public void setCatergory(ProductCategory catergory) {
-        this.catergory = catergory;
+    public void setCategory(ProductType category) {
+        this.category = category;
     }
 
     public String getModelName() {

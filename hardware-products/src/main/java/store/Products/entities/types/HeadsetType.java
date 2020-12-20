@@ -1,4 +1,4 @@
-package store.Products.model.types;
+package store.Products.entities.types;
 
 public enum HeadsetType {
 

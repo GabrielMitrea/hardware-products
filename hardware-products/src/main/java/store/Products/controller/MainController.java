@@ -2,8 +2,8 @@ package store.Products.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import store.Products.model.Store;
-import store.Products.model.products.*;
+import store.Products.entities.store.Store;
+import store.Products.entities.store.Products;
 import store.Products.service.MainService;
 
 import java.util.List;
@@ -16,19 +16,19 @@ public class MainController {
     private MainService mainService;
 
 
-    @GetMapping("/hardwareProducts")
-    public List<HardwareProducts> getHardwareProducts(){
-        return mainService.getHardwareProducts();
+    @GetMapping("/Products")
+    public List<Products> getProducts(){
+        return mainService.getProducts();
     }
 
-    @GetMapping("/allProducts")
+    @GetMapping
     public List<Store> getStoreList(){
        return mainService.getStoreList();
     }
 
 
     @DeleteMapping("/deleteProduct/{id}")
-    public List<HardwareProducts> deleteProduct(@PathVariable long id){
+    public List<Products> deleteProduct(@PathVariable long id){
         return mainService.deleteProduct(id);
     }
 }

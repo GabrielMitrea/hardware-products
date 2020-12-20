@@ -1,4 +1,4 @@
-package store.Products.model.reviews;
+package store.Products.entities.reviews;
 
 public class LaptopReview {
 

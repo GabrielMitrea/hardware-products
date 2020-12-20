@@ -1,26 +1,36 @@
-package store.Products.model.products;
+package store.Products.entities.products;
 
-import store.Products.model.ProductCategory;
-import store.Products.model.reviews.KeyboardReview;
-import store.Products.model.types.KeyboardType;
 
+import store.Products.entities.reviews.KeyboardReview;
+import store.Products.entities.types.KeyboardType;
+import store.Products.entities.types.ProductType;
+
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
 import java.util.List;
 
 public class Keyboard {
 
-    private long id;
-    private ProductCategory category;
+    private long keyboardId;
+    @NotNull(message = "Category cannot be null")
+    private ProductType category;
+    @NotNull(message = "Model name cannot be null")
     private String modelName;
+    @NotNull(message = "Type  cannot be null")
     private KeyboardType type;
+    @NotNull(message = "Is lightened property cannot be null")
     private String isLightened;
+    @NotNull(message = "Is mechanic property cannot be null")
     private String isMechanic;
+    @NotNull(message = "Price cannot be null")
+    @Min(1)
     private Double price;
     private List<KeyboardReview> keyboardReview;
 
     public Keyboard(){}
 
-    public Keyboard(long id, ProductCategory category,String modelName, KeyboardType type, String isLightened,String isMechanic, Double price,List<KeyboardReview> keyboardReview) {
-        this.id=id;
+    public Keyboard(long keyboardId, ProductType category, String modelName, KeyboardType type, String isLightened, String isMechanic, Double price, List<KeyboardReview> keyboardReview) {
+        this.keyboardId=keyboardId;
         this.category=category;
         this.modelName = modelName;
         this.type = type;
@@ -30,19 +40,19 @@ public class Keyboard {
         this.keyboardReview=keyboardReview;
     }
 
-    public long getId() {
-        return id;
+    public long getKeyboardId() {
+        return keyboardId;
     }
 
-    public void setId(long id) {
-        this.id = id;
+    public void setKeyboardId(long keyboardId) {
+        this.keyboardId = keyboardId;
     }
 
-    public ProductCategory getCategory() {
+    public ProductType getCategory() {
         return category;
     }
 
-    public void setCategory(ProductCategory category) {
+    public void setCategory(ProductType category) {
         this.category = category;
     }
 

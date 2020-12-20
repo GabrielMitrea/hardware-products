@@ -1,28 +1,39 @@
-package store.Products.model.products;
+package store.Products.entities.products;
 
-import store.Products.model.ProductCategory;
-import store.Products.model.reviews.HeadsetReview;
-import store.Products.model.types.HeadsetType;
 
+import store.Products.entities.reviews.HeadsetReview;
+import store.Products.entities.types.HeadsetType;
+import store.Products.entities.types.ProductType;
+
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
 import java.util.List;
 
 public class Headset {
 
-    private Long id;
-    private ProductCategory category;
+    private long headsetId;
+    @NotNull(message = "Category cannot be null")
+    private ProductType category;
+    @NotNull(message = "Type cannot be null")
     private HeadsetType type;
+    @NotNull(message = "Model name cannot be null")
     private String modelName;
+    @NotNull(message = "Technology cannot be null")
     private String technology;
+    @NotNull(message = "Sound cannot be null")
     private String sound;
+    @NotNull(message = "Connection cannot be null")
     private String connection;
+    @NotNull(message = "Price cannot be null")
+    @Min(1)
     private Double price;
     private List<HeadsetReview> headsetReview;
 
     public Headset(){}
 
 
-    public Headset(long id,ProductCategory category, HeadsetType type, String modelName, String technology, String sound, String connection, Double price,List<HeadsetReview> headsetReview) {
-        this.id=id;
+    public Headset(long headsetId, ProductType category, HeadsetType type, String modelName, String technology, String sound, String connection, Double price, List<HeadsetReview> headsetReview) {
+        this.headsetId=headsetId;
         this.category=category;
         this.type = type;
         this.modelName = modelName;
@@ -33,19 +44,19 @@ public class Headset {
         this.headsetReview=headsetReview;
     }
 
-    public long getId() {
-        return id;
+    public long getHeadsetId() {
+        return headsetId;
     }
 
-    public void setId(long id) {
-        this.id = id;
+    public void setHeadsetId(long headsetId) {
+        this.headsetId = headsetId;
     }
 
-    public ProductCategory getCategory() {
+    public ProductType getCategory() {
         return category;
     }
 
-    public void setCategory(ProductCategory category) {
+    public void setCategory(ProductType category) {
         this.category = category;
     }
 

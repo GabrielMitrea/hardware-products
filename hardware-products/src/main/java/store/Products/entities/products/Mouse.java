@@ -1,10 +1,9 @@
-package store.Products.model.products;
+package store.Products.entities.products;
 
 
-import org.hibernate.validator.constraints.NotBlank;
-import store.Products.model.ProductCategory;
-import store.Products.model.reviews.MouseReview;
-import store.Products.model.types.MouseType;
+import store.Products.entities.reviews.MouseReview;
+import store.Products.entities.types.MouseType;
+import store.Products.entities.types.ProductType;
 
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
@@ -13,9 +12,9 @@ import java.util.List;
 
 public class Mouse {
 
-    private long id;
+    private long mouseId;
     @NotNull(message = "Product category cannot be blank")
-    private ProductCategory category;
+    private ProductType category;
 
     @NotNull(message = "Model name cannot be null")
     private String modelName;
@@ -35,8 +34,8 @@ public class Mouse {
 
     public Mouse(){}
 
-    public Mouse(long id,ProductCategory category,String modelName, MouseType type, String maxResolution, String interfacee, Double price, List<MouseReview> mouseReview) {
-        this.id=id;
+    public Mouse(long mouseId, ProductType category, String modelName, MouseType type, String maxResolution, String interfacee, Double price, List<MouseReview> mouseReview) {
+        this.mouseId=mouseId;
         this.category=category;
         this.modelName = modelName;
         this.type = type;
@@ -46,19 +45,19 @@ public class Mouse {
         this.mouseReview=mouseReview;
     }
 
-    public long getId() {
-        return id;
+    public long getMouseId() {
+        return mouseId;
     }
 
-    public void setId(long id) {
-        this.id = id;
+    public void setMouseId(long mouseId) {
+        this.mouseId = mouseId;
     }
 
-    public ProductCategory getCategory() {
+    public ProductType getCategory() {
         return category;
     }
 
-    public void setCategory(ProductCategory category) {
+    public void setCategory(ProductType category) {
         this.category = category;
     }
 

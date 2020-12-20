@@ -1,10 +1,9 @@
 package store.Products.repository;
 
 import org.springframework.stereotype.Repository;
-import store.Products.model.ProductCategory;
-import store.Products.model.products.Keyboard;
-import store.Products.model.products.Mouse;
-import store.Products.model.products.Processor;
+import store.Products.exception.utils.ProductNotFoundException;
+import store.Products.entities.types.ProductType;
+import store.Products.entities.products.Processor;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,11 +18,13 @@ public class ProcessorRepository {
 
     public ProcessorRepository(){
 
-        processors.add(new Processor(426182390,ProductCategory.Processor,"m1","c1","f1","s1","se1","mt1",22.11,null));
-        processors.add(new Processor(2123058562,ProductCategory.Processor,"m2","c2","f2","s2","se2","mt2",22.11,null));
-        processors.add(new Processor(1821735114,ProductCategory.Processor,"m3","c3","f3","s3","se3","mt3",22.11,null));
-        processors.add(new Processor(203450619,ProductCategory.Processor,"m4","c4","f4","s4","se4","mt4",22.11,null));
-        processors.add(new Processor(1787773504,ProductCategory.Processor,"m5","c5","f5","s5","se5","mt5",22.11,null));
+
+
+        processors.add(new Processor(426182390, ProductType.Processor,"m1","c1","f1","s1","se1","mt1",22.11,null));
+        processors.add(new Processor(2123058562, ProductType.Processor,"m2","c2","f2","s2","se2","mt2",22.11,null));
+        processors.add(new Processor(1821735114, ProductType.Processor,"m3","c3","f3","s3","se3","mt3",22.11,null));
+        processors.add(new Processor(203450619, ProductType.Processor,"m4","c4","f4","s4","se4","mt4",22.11,null));
+        processors.add(new Processor(1787773504, ProductType.Processor,"m5","c5","f5","s5","se5","mt5",22.11,null));
 
     }
 
@@ -51,16 +52,36 @@ public class ProcessorRepository {
     }
 
     public Processor addNewProcessor(Processor processor){
-        processor.setId(Math.abs(new Random().nextInt()));
+        processor.setProcessorId(Math.abs(new Random().nextInt()));
         processors.add(processor);
         return processor;
     }
 
-    public Optional<Processor> getProcessorById(long id){
+    public Optional<Processor> getProcessorById(long processorId){
         return processors.stream()
-                .filter(processor -> processor.getId()==id)
+                .filter(processor -> processor.getProcessorId()==processorId)
                 .findFirst();
     }
 
+    public Processor updateProcessor(Processor processor, long processorId){
+      processors.stream()
+                .forEach(upProcessor-> {
+                    if(upProcessor.getProcessorId()==processorId){
+                        upProcessor.setCategory(processor.getCategory());
+                        upProcessor.setModelName(processor.getModelName());
+                        upProcessor.setCore(processor.getCore());
+                        upProcessor.setFrequency(processor.getFrequency());
+                        upProcessor.setSocket(processor.getSocket());
+                        upProcessor.setSeries(processor.getSeries());
+                        upProcessor.setManufacturingTechnology(processor.getManufacturingTechnology());
+                        upProcessor.setPrice(processor.getPrice());
+                        upProcessor.setProcessorReview(processor.getProcessorReview());
+                    }
+                });
+        return processors.stream()
+                .filter(upProcessor->upProcessor.getProcessorId()==processorId)
+                .findFirst()
+                .orElseThrow(()-> new ProductNotFoundException("Wrong or not found id for this request"));
+    }
 
 }

@@ -1,19 +1,18 @@
-package store.Products.model.products;
+package store.Products.entities.products;
 
-import store.Products.model.ProductCategory;
-import store.Products.model.reviews.LaptopReview;
-import store.Products.model.types.LaptopType;
+import store.Products.entities.reviews.LaptopReview;
+import store.Products.entities.types.LaptopType;
+import store.Products.entities.types.ProductType;
 
-import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import java.util.List;
 
 public class Laptop {
 
-    private long id;
+    private long laptopId;
 
     @NotNull(message = "Category cannot be null")
-    private ProductCategory category;
+    private ProductType category;
     @NotNull(message = "Model name cannot be null")
     private String model;
 
@@ -38,8 +37,8 @@ public class Laptop {
 
     public Laptop(){}
 
-    public Laptop(long id,ProductCategory category,String model, LaptopType type, String cpuModel, String gpuModel, String memoryRamSize,String storageCapacity,Double price, List<LaptopReview> laptopReviews) {
-        this.id=id;
+    public Laptop(long laptopId, ProductType category, String model, LaptopType type, String cpuModel, String gpuModel, String memoryRamSize, String storageCapacity, Double price, List<LaptopReview> laptopReviews) {
+        this.laptopId=laptopId;
         this.category=category;
         this.model = model;
         this.type = type;
@@ -51,20 +50,20 @@ public class Laptop {
         this.laptopReviews = laptopReviews;
     }
 
-    public ProductCategory getCategory() {
+    public ProductType getCategory() {
         return category;
     }
 
-    public void setCategory(ProductCategory category) {
+    public void setCategory(ProductType category) {
         this.category = category;
     }
 
-    public long getId() {
-        return id;
+    public long getLaptopId() {
+        return laptopId;
     }
 
-    public void setId(long id) {
-        this.id = id;
+    public void setLaptopId(long laptopId) {
+        this.laptopId = laptopId;
     }
 
     public String getModel() {

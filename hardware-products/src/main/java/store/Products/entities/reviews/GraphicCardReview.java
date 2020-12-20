@@ -1,12 +1,12 @@
-package store.Products.model.reviews;
+package store.Products.entities.reviews;
 
-public class HeadsetReview {
+public class GraphicCardReview {
     private String username;
     private String content;
 
-    public HeadsetReview(){}
+    public GraphicCardReview(){}
 
-    public HeadsetReview(String username, String content) {
+    public GraphicCardReview(String username, String content) {
         this.username = username;
         this.content = content;
     }

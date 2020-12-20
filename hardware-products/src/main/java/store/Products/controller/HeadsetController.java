@@ -3,9 +3,8 @@ package store.Products.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import store.Products.model.products.Headset;
-import store.Products.model.products.Headset;
-import store.Products.model.types.HeadsetType;
+import store.Products.entities.products.Headset;
+import store.Products.entities.types.HeadsetType;
 import store.Products.service.HeadsetService;
 
 import javax.validation.Valid;
@@ -30,12 +29,16 @@ public class HeadsetController {
             @RequestBody Headset headset){
         Headset addHeadset=headsetService.addNewHeadset(headset);
         return ResponseEntity
-                .created(URI.create("/headset/" + addHeadset.getId()))
+                .created(URI.create("/headset/" + addHeadset.getHeadsetId()))
                 .body(addHeadset);
     }
 
-    @GetMapping("/{id}")
-    public Headset getHeadsetById(@PathVariable long id){
-        return headsetService.getHeadsetById(id);
+    @GetMapping("/{headsetId}")
+    public Headset getHeadsetBygraphicCardId(@PathVariable long headsetId){
+        return headsetService.getHeadsetById(headsetId);
+    }
+    @PutMapping("/{headsetId}")
+    public Headset updateHeadset(@RequestBody Headset headset, @PathVariable long headsetId){
+        return headsetService.updateHeadset(headset, headsetId);
     }
 }

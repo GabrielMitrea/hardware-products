@@ -4,8 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
-import store.Products.model.products.Mouse;
-import store.Products.model.types.MouseType;
+import store.Products.entities.products.Mouse;
+import store.Products.entities.types.MouseType;
 import store.Products.service.MouseService;
 
 import javax.validation.Valid;
@@ -25,9 +25,9 @@ public class MouseController {
         return mouseService.getMouse(type,maxResolution);
     }
 
-    @GetMapping("/{id}")
-    public Mouse getMouseById(@PathVariable long id){
-        return mouseService.getMouseById(id);
+    @GetMapping("/{mouseId}")
+    public Mouse getMouseById(@PathVariable long mouseId){
+        return mouseService.getMouseById(mouseId);
     }
 
     @PostMapping
@@ -36,12 +36,12 @@ public class MouseController {
             @RequestBody Mouse mouse){
         Mouse addMouse=mouseService.addNewMouse(mouse);
         return ResponseEntity
-                .created(URI.create("/mouse/" + addMouse.getId()))
+                .created(URI.create("/mouse/" + addMouse.getMouseId()))
                 .body(addMouse);
     }
-    @PutMapping("/{id}")
-    public Mouse updateMouse(@RequestBody Mouse mouse, @PathVariable long id){
-        return mouseService.updateMouse(mouse, id);
+    @PutMapping("/{mouseId}")
+    public Mouse updateMouse(@RequestBody Mouse mouse, @PathVariable long mouseId){
+        return mouseService.updateMouse(mouse, mouseId);
     }
 
 }

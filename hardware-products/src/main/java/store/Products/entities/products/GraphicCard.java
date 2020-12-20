@@ -1,18 +1,17 @@
-package store.Products.model.products;
+package store.Products.entities.products;
 
-import store.Products.model.ProductCategory;
-import store.Products.model.reviews.GraphicCardReview;
+import store.Products.entities.reviews.GraphicCardReview;
+import store.Products.entities.types.ProductType;
 
 import javax.validation.constraints.Min;
-import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import java.util.List;
 
 public class GraphicCard {
 
-    private long id;
+    private long graphicCardId;
     @NotNull(message = "Category cannot be null")
-    private ProductCategory category;
+    private ProductType category;
 
     @NotNull(message = "Model name cannot be null")
     private String modelName;
@@ -33,8 +32,8 @@ public class GraphicCard {
 
     public GraphicCard(){}
 
-    public GraphicCard(long id,ProductCategory category,String modelName, String memorySize, String memoryType, String interfacee, double price,List<GraphicCardReview> graphicCardReview) {
-        this.id=id;
+    public GraphicCard(long graphicCardId, ProductType category, String modelName, String memorySize, String memoryType, String interfacee, double price, List<GraphicCardReview> graphicCardReview) {
+        this.graphicCardId=graphicCardId;
         this.category=category;
         this.modelName = modelName;
         this.memorySize = memorySize;
@@ -44,19 +43,19 @@ public class GraphicCard {
         this.graphicCardReview=graphicCardReview;
     }
 
-    public long getId() {
-        return id;
+    public long getGraphicCardId() {
+        return graphicCardId;
     }
 
-    public void setId(long id) {
-        this.id = id;
+    public void setGraphicCardId(long graphicCardId) {
+        this.graphicCardId = graphicCardId;
     }
 
-    public ProductCategory getCategory() {
+    public ProductType getCategory() {
         return category;
     }
 
-    public void setCategory(ProductCategory category) {
+    public void setCategory(ProductType category) {
         this.category = category;
     }
 

@@ -1,11 +1,11 @@
 package store.Products.repository;
 
 import org.springframework.stereotype.Repository;
-import store.Products.model.ProductCategory;
-import store.Products.model.products.Keyboard;
-import store.Products.model.products.Mouse;
-import store.Products.model.reviews.KeyboardReview;
-import store.Products.model.types.KeyboardType;
+import store.Products.exception.utils.ProductNotFoundException;
+import store.Products.entities.types.ProductType;
+import store.Products.entities.products.Keyboard;
+import store.Products.entities.reviews.KeyboardReview;
+import store.Products.entities.types.KeyboardType;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,15 +21,16 @@ public class KeyboardRepository {
 
     public KeyboardRepository(){
 
+
         KeyboardReview kr1=new KeyboardReview("Gabi","Very nice product");
         keyboardReview.add(kr1);
 
-        Keyboard k1=new Keyboard(214124214,ProductCategory.Keyboard,"t1",KeyboardType.Wireless,"Da","Nu", 209.99,null);
-        Keyboard k2=new Keyboard(525762431,ProductCategory.Keyboard,"t2",KeyboardType.Wired,"Da","Nu", 500.12,keyboardReview);
-        Keyboard k3=new Keyboard(352352157,ProductCategory.Keyboard,"t3",KeyboardType.Wireless,"Nu","Nu", 530.00,null);
-        Keyboard k4=new Keyboard(532523523,ProductCategory.Keyboard,"t4",KeyboardType.Wired,"Nu","Nu", 99.00,null);
-        Keyboard k5=new Keyboard(743571123,ProductCategory.Keyboard,"t5",KeyboardType.Wireless,"Da","Da", 70.89,null);
-        Keyboard k6=new Keyboard(235412541,ProductCategory.Keyboard,"t6",KeyboardType.Wired,"Da","Da", 320.00,null);
+        Keyboard k1=new Keyboard(214124214, ProductType.Keyboard,"t1",KeyboardType.Wireless,"Da","Nu", 209.99,null);
+        Keyboard k2=new Keyboard(525762431, ProductType.Keyboard,"t2",KeyboardType.Wired,"Da","Nu", 500.12,keyboardReview);
+        Keyboard k3=new Keyboard(352352157, ProductType.Keyboard,"t3",KeyboardType.Wireless,"Nu","Nu", 530.00,null);
+        Keyboard k4=new Keyboard(532523523, ProductType.Keyboard,"t4",KeyboardType.Wired,"Nu","Nu", 99.00,null);
+        Keyboard k5=new Keyboard(743571123, ProductType.Keyboard,"t5",KeyboardType.Wireless,"Da","Da", 70.89,null);
+        Keyboard k6=new Keyboard(235412541, ProductType.Keyboard,"t6",KeyboardType.Wired,"Da","Da", 320.00,null);
         keyboards.add(k1);
         keyboards.add(k2);
         keyboards.add(k3);
@@ -62,16 +63,34 @@ public class KeyboardRepository {
     }
 
     public Keyboard addNewKeyboard(Keyboard keyboard){
-        keyboard.setId(Math.abs(new Random().nextInt()));
+        keyboard.setKeyboardId(Math.abs(new Random().nextInt()));
         keyboards.add(keyboard);
         return keyboard;
     }
 
-    public Optional<Keyboard> getKeyboardById(long id){
+    public Optional<Keyboard> getKeyboardById(long keyboardId){
        return keyboards.stream()
-                .filter(keyboard -> keyboard.getId()==id)
+                .filter(keyboard -> keyboard.getKeyboardId()==keyboardId)
                 .findFirst();
     }
 
+    public Keyboard updateKeyboard(Keyboard keyboard, long keyboardId){
+        keyboards.stream()
+                .forEach(upKeyboard-> {
+                    if(upKeyboard.getKeyboardId()==keyboardId){
+                        upKeyboard.setCategory(keyboard.getCategory());
+                        upKeyboard.setModelName(keyboard.getModelName());
+                        upKeyboard.setType(keyboard.getType());
+                        upKeyboard.setIsLightened(keyboard.getIsLightened());
+                        upKeyboard.setIsMechanic(keyboard.getIsMechanic());
+                        upKeyboard.setPrice(keyboard.getPrice());
+                        upKeyboard.setKeyboardReview(keyboard.getKeyboardReview());
+                    }
+                });
+        return keyboards.stream()
+                .filter(upKeyboard->upKeyboard.getKeyboardId()==keyboardId)
+                .findFirst()
+                .orElseThrow(()-> new ProductNotFoundException("Wrong or not found id for this request"));
+    }
 
 }

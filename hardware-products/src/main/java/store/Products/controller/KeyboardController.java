@@ -3,9 +3,8 @@ package store.Products.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import store.Products.model.products.Keyboard;
-import store.Products.model.products.Keyboard;
-import store.Products.model.types.KeyboardType;
+import store.Products.entities.products.Keyboard;
+import store.Products.entities.types.KeyboardType;
 import store.Products.service.KeyboardService;
 
 import javax.validation.Valid;
@@ -31,12 +30,16 @@ public class KeyboardController {
             @RequestBody Keyboard keyboard){
         Keyboard addKeyboard=keyboardService.addNewKeyboard(keyboard);
         return ResponseEntity
-                .created(URI.create("/keyboard/" + addKeyboard.getId()))
+                .created(URI.create("/keyboard/" + addKeyboard.getKeyboardId()))
                 .body(addKeyboard);
     }
 
-    @GetMapping("/{id}")
-    public Keyboard getKeyboardById(@PathVariable long id){
-        return keyboardService.getKeyboardById(id);
+    @GetMapping("/{keyboardId}")
+    public Keyboard getKeyboardById(@PathVariable long keyboardId){
+        return keyboardService.getKeyboardById(keyboardId);
+    }
+    @PutMapping("/{keyboardId}")
+    public Keyboard updateKeyboard(@RequestBody Keyboard keyboard, @PathVariable long keyboardId){
+        return keyboardService.updateKeyboard(keyboard, keyboardId);
     }
 }

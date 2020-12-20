@@ -1,6 +1,6 @@
-package store.Products.model;
+package store.Products.entities.types;
 
-public enum ProductCategory {
+public enum ProductType {
      Mouse, Keyboard, Processor, GraphicCard, Headset, Laptop
 
 }

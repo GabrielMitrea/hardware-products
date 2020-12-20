@@ -1,10 +1,9 @@
 package store.Products.repository;
 
 import org.springframework.stereotype.Repository;
-import store.Products.model.ProductCategory;
-import store.Products.model.products.GraphicCard;
-import store.Products.model.products.Keyboard;
-import store.Products.model.products.Mouse;
+import store.Products.exception.utils.ProductNotFoundException;
+import store.Products.entities.types.ProductType;
+import store.Products.entities.products.GraphicCard;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,11 +18,12 @@ public class GraphicCardRepository {
 
     public GraphicCardRepository(){
 
-        graphicCards.add(new GraphicCard(123456789,ProductCategory.GraphicCard,"m1","s1","t1","i1",24.99,null));
-        graphicCards.add(new GraphicCard(214142516,ProductCategory.GraphicCard,"m2","s2","t2","i2",20.00,null));
-        graphicCards.add(new GraphicCard(863725451,ProductCategory.GraphicCard,"m3","s3","t3","i3",21.31,null));
-        graphicCards.add(new GraphicCard(941536131,ProductCategory.GraphicCard,"m4","s4","t4","i4",500.21,null));
-        graphicCards.add(new GraphicCard(214124125,ProductCategory.GraphicCard,"m5","s5","t5","i5",320.99,null));
+
+        graphicCards.add(new GraphicCard(123456789,ProductType.GraphicCard,"m1","s1","t1","i1",24.99,null));
+        graphicCards.add(new GraphicCard(214142516, ProductType.GraphicCard,"m2","s2","t2","i2",20.00,null));
+        graphicCards.add(new GraphicCard(863725451, ProductType.GraphicCard,"m3","s3","t3","i3",21.31,null));
+        graphicCards.add(new GraphicCard(941536131, ProductType.GraphicCard,"m4","s4","t4","i4",500.21,null));
+        graphicCards.add(new GraphicCard(214124125, ProductType.GraphicCard,"m5","s5","t5","i5",320.99,null));
 
     }
 
@@ -50,15 +50,33 @@ public class GraphicCardRepository {
                 .collect(Collectors.toList());
     }
     public GraphicCard addNewGraphicCard(GraphicCard graphicCard){
-        graphicCard.setId(Math.abs(new Random().nextInt()));
+        graphicCard.setGraphicCardId(Math.abs(new Random().nextInt()));
         graphicCards.add(graphicCard);
         return graphicCard;
     }
 
-    public Optional<GraphicCard> getGraphicCardById(long id){
+    public Optional<GraphicCard> getGraphicCardById(long graphicCardId){
         return graphicCards.stream()
-                .filter(graphicCard -> graphicCard.getId()==id)
+                .filter(graphicCard -> graphicCard.getGraphicCardId()==graphicCardId)
                 .findFirst();
     }
 
+    public GraphicCard updateGraphicCard(GraphicCard graphicCard, long graphicCardId){
+        graphicCards.stream()
+                .forEach(upGraphicCard-> {
+                    if(upGraphicCard.getGraphicCardId()==graphicCardId){
+                        upGraphicCard.setCategory(graphicCard.getCategory());
+                        upGraphicCard.setModelName(graphicCard.getModelName());
+                        upGraphicCard.setMemorySize(graphicCard.getMemorySize());
+                        upGraphicCard.setMemoryType(graphicCard.getMemoryType());
+                        upGraphicCard.setInterfacee(graphicCard.getInterfacee());
+                        upGraphicCard.setPrice(graphicCard.getPrice());
+                        upGraphicCard.setGraphicCardReview(graphicCard.getGraphicCardReview());
+                    }
+                });
+        return graphicCards.stream()
+                .filter(upGraphicCard->upGraphicCard.getGraphicCardId()==graphicCardId)
+                .findFirst()
+                .orElseThrow(()-> new ProductNotFoundException("Wrong or not found id for this request"));
+    }
 }

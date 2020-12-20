@@ -3,10 +3,8 @@ package store.Products.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import store.Products.model.products.Laptop;
-import store.Products.model.products.Laptop;
-import store.Products.model.products.Laptop;
-import store.Products.model.types.LaptopType;
+import store.Products.entities.products.Laptop;
+import store.Products.entities.types.LaptopType;
 import store.Products.service.LaptopService;
 
 import javax.validation.Valid;
@@ -25,13 +23,9 @@ public class LaptopController {
         return laptopService.getLaptop(type, gpuModel);
     }
 
-    @DeleteMapping("/deleteLaptop/{id}")
-    public List<Laptop> deleteLaptop(@PathVariable long id){
-        return laptopService.deleteLaptop(id);
-    }
-    @GetMapping("/{id}")
-    public Laptop getLaptopById(@PathVariable long id){
-        return laptopService.getLaptopById(id);
+    @GetMapping("/{laptopId}")
+    public Laptop getLaptopById(@PathVariable long laptopId){
+        return laptopService.getLaptopById(laptopId);
     }
 
     @PostMapping
@@ -40,7 +34,11 @@ public class LaptopController {
             @RequestBody Laptop laptop){
         Laptop addLaptop=laptopService.addNewLaptop(laptop);
         return ResponseEntity
-                .created(URI.create("/laptop/" + addLaptop.getId()))
+                .created(URI.create("/laptop/" + addLaptop.getLaptopId()))
                 .body(addLaptop);
+    }
+    @PutMapping("/{laptopId}")
+    public Laptop updateLaptop(@RequestBody Laptop laptop, @PathVariable long laptopId){
+        return laptopService.updateLaptop(laptop, laptopId);
     }
 }

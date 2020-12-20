@@ -3,8 +3,8 @@ package store.Products.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import store.Products.exception.utils.ProductNotFoundException;
-import store.Products.model.products.Mouse;
-import store.Products.model.types.MouseType;
+import store.Products.entities.products.Mouse;
+import store.Products.entities.types.MouseType;
 import store.Products.repository.MouseRepository;
 
 import java.util.List;
@@ -21,18 +21,18 @@ public class MouseService {
         return mouseRepository.getMouse(type,maxResolution);
     }
 
-    public Mouse getMouseById(long id){
-        Optional<Mouse> mouseOptional=mouseRepository.getMouseById(id);
+    public Mouse getMouseById(long mouseId){
+        Optional<Mouse> mouseOptional=mouseRepository.getMouseById(mouseId);
         if(mouseOptional.isPresent()){
             return mouseOptional.get();
-        }else throw new ProductNotFoundException("Mouse with id: " + id + " not found " );
+        }else throw new ProductNotFoundException("Mouse with Id: " + mouseId + " not found " );
     }
     public Mouse addNewMouse(Mouse mouse){
         return mouseRepository.addNewMouse(mouse);
     }
 
 
-    public Mouse updateMouse(Mouse mouse,long id){
-        return mouseRepository.updateMouse(mouse, id);
+    public Mouse updateMouse(Mouse mouse,long mouseId){
+        return mouseRepository.updateMouse(mouse, mouseId);
     }
 }

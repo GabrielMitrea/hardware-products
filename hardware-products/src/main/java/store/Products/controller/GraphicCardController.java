@@ -3,7 +3,7 @@ package store.Products.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import store.Products.model.products.GraphicCard;
+import store.Products.entities.products.GraphicCard;
 import store.Products.service.GraphicCardService;
 
 import javax.validation.Valid;
@@ -28,13 +28,17 @@ public class GraphicCardController {
             @RequestBody GraphicCard graphicCard){
         GraphicCard addGraphicCard=graphicCardService.addNewGraphicCard(graphicCard);
         return ResponseEntity
-                .created(URI.create("/graphicCard/" + addGraphicCard.getId()))
+                .created(URI.create("/graphicCard/" + addGraphicCard.getGraphicCardId()))
                 .body(addGraphicCard);
     }
 
-    @GetMapping("/{id}")
-    public GraphicCard getGraphicCardById(@PathVariable long id){
-        return graphicCardService.getGraphicCardById(id);
+    @GetMapping("/{graphicCardId}")
+    public GraphicCard getGraphicCardById(@PathVariable long graphicCardId){
+        return graphicCardService.getGraphicCardById(graphicCardId);
     }
 
+    @PutMapping("/{graphicCardId}")
+    public GraphicCard updateGraphicCard(@RequestBody GraphicCard graphicCard, @PathVariable long graphicCardId){
+        return graphicCardService.updateGraphicCard(graphicCard, graphicCardId);
+    }
 }

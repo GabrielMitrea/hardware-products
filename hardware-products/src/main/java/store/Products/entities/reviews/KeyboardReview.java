@@ -1,12 +1,13 @@
-package store.Products.model.reviews;
+package store.Products.entities.reviews;
 
-public class ProcessorReview {
+public class KeyboardReview {
+
     private String username;
     private String content;
 
-    public ProcessorReview(){}
+    public KeyboardReview(){}
 
-    public ProcessorReview(String username, String content) {
+    public KeyboardReview(String username, String content) {
         this.username = username;
         this.content = content;
     }

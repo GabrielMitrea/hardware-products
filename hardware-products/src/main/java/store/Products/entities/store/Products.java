@@ -1,23 +1,27 @@
-package store.Products.model.products;
+package store.Products.entities.store;
+
+import store.Products.entities.products.*;
 
 import java.util.List;
 
-public class HardwareProducts {
+public class Products {
     private List<Mouse> Mice;
     private List<Keyboard> Keyboards;
     private List<Processor> Processors;
     private List<GraphicCard> graphicCards;
     private List<Headset> Headsets;
+    private List<Laptop> Laptops;
 
-    public HardwareProducts(){}
+    public Products(){}
 
-    public HardwareProducts(List<Mouse> Mice, List<Keyboard> Keyboards, List<Processor> Processors, List<GraphicCard> graphicCards, List<Headset> Headsets) {
+    public Products(List<Mouse> Mice, List<Keyboard> Keyboards, List<Processor> Processors, List<GraphicCard> graphicCards, List<Headset> Headsets, List<Laptop> Laptops) {
 
         this.Mice = Mice;
         this.Keyboards = Keyboards;
         this.Processors = Processors;
         this.graphicCards = graphicCards;
         this.Headsets = Headsets;
+        this.Laptops=Laptops;
     }
 
 
@@ -62,4 +66,11 @@ public class HardwareProducts {
         this.Headsets = Headsets;
     }
 
+    public List<Laptop> getLaptops() {
+        return Laptops;
+    }
+
+    public void setLaptops(List<Laptop> laptops) {
+        Laptops = laptops;
+    }
 }
