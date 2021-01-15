@@ -1,87 +1,70 @@
 package store.Products.entities.products;
 
-
-import store.Products.entities.reviews.MouseReview;
-import store.Products.entities.types.MouseType;
-import store.Products.entities.types.ProductType;
-
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
-import java.util.List;
+
 
 
 public class Mouse {
 
-    private long mouseId;
-    @NotNull(message = "Product category cannot be blank")
-    private ProductType category;
+    private int mouseId;
+    @NotNull(message = "Product categoryName cannot be blank")
+    private String categoryName;
 
-    @NotNull(message = "Model name cannot be null")
-    private String modelName;
+
     @NotNull(message = "Type cannot be null")
 
-    private MouseType type;
+    private String mouseType;
     @NotNull(message = "Max resolution cannot be null")
 
     private String maxResolution;
     @NotNull(message = "Interface cannot be null")
 
     private String interfacee;
-    @NotNull(message = "Price cannot be null")
-    @Min(1)
-    private Double price;
-    private List<MouseReview> mouseReview;
+    private int productId;
+
 
     public Mouse(){}
 
-    public Mouse(long mouseId, ProductType category, String modelName, MouseType type, String maxResolution, String interfacee, Double price, List<MouseReview> mouseReview) {
-        this.mouseId=mouseId;
-        this.category=category;
-        this.modelName = modelName;
-        this.type = type;
+    public Mouse(int mouseId,  String categoryName, String mouseType,  String maxResolution,  String interfacee, int productId) {
+        this.mouseId = mouseId;
+        this.categoryName = categoryName;
+        this.mouseType = mouseType;
         this.maxResolution = maxResolution;
-        this.interfacee=interfacee;
-        this.price = price;
-        this.mouseReview=mouseReview;
+        this.interfacee = interfacee;
+        this.productId=productId;
     }
 
-    public long getMouseId() {
+    public int getMouseId() {
         return mouseId;
     }
 
-    public void setMouseId(long mouseId) {
+    public void setMouseId(int mouseId) {
         this.mouseId = mouseId;
     }
 
-    public ProductType getCategory() {
-        return category;
+    public String getCategoryName() {
+        return categoryName;
     }
 
-    public void setCategory(ProductType category) {
-        this.category = category;
+    public void setCategoryName(String categoryName) {
+        this.categoryName = categoryName;
     }
 
-    public String getModelName() {
-        return modelName;
+
+    public String getMouseType() {
+        return mouseType;
     }
 
-    public void setModelName(String modelName) {
-        this.modelName = modelName;
+    public void setMouseType(String mouseType) {
+        this.mouseType = mouseType;
     }
 
-    public MouseType getType() {
-        return type;
-    }
-
-    public void setType(MouseType type) {
-        this.type = type;
-    }
-
-    public String getmaxResolution() {
+    public String getMaxResolution() {
         return maxResolution;
     }
 
-    public void setmaxResolution(String maxResolution) {
+    public void setMaxResolution(String maxResolution) {
         this.maxResolution = maxResolution;
     }
 
@@ -93,19 +76,11 @@ public class Mouse {
         this.interfacee = interfacee;
     }
 
-    public double getPrice() {
-        return price;
+    public int getProductId() {
+        return productId;
     }
 
-    public void setPrice(double price) {
-        this.price = price;
-    }
-
-    public List<MouseReview> getMouseReview() {
-        return mouseReview;
-    }
-
-    public void setMouseReview(List<MouseReview> mouseReview) {
-        this.mouseReview = mouseReview;
+    public void setProductId(int productId) {
+        this.productId = productId;
     }
 }

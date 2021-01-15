@@ -1,23 +1,19 @@
 package store.Products.entities.products;
 
-import store.Products.entities.reviews.LaptopReview;
-import store.Products.entities.types.LaptopType;
-import store.Products.entities.types.ProductType;
 
 import javax.validation.constraints.NotNull;
 import java.util.List;
 
 public class Laptop {
 
-    private long laptopId;
+    private int LaptopId;
 
     @NotNull(message = "Category cannot be null")
-    private ProductType category;
-    @NotNull(message = "Model name cannot be null")
-    private String model;
+    private String categoryName;
+
 
     @NotNull(message = "Type cannot be null")
-    private LaptopType type;
+    private String laptopType;
 
     @NotNull(message = "CPU model cannot be null")
     private String cpuModel;
@@ -30,71 +26,61 @@ public class Laptop {
 
     @NotNull(message = "Storage capacity cannot be null")
     private String storageCapacity;
+    private int productId;
 
-    @NotNull(message = "Price cannot be null")
-    private Double price;
-    private List<LaptopReview> laptopReviews;
+
+
 
     public Laptop(){}
 
-    public Laptop(long laptopId, ProductType category, String model, LaptopType type, String cpuModel, String gpuModel, String memoryRamSize, String storageCapacity, Double price, List<LaptopReview> laptopReviews) {
-        this.laptopId=laptopId;
-        this.category=category;
-        this.model = model;
-        this.type = type;
+    public Laptop(int laptopId,  String categoryName,  String laptopType,  String cpuModel, String gpuModel,  String memoryRamSize,  String storageCapacity,int productId) {
+        LaptopId = laptopId;
+        this.categoryName = categoryName;
+        this.laptopType = laptopType;
         this.cpuModel = cpuModel;
         this.gpuModel = gpuModel;
         this.memoryRamSize = memoryRamSize;
         this.storageCapacity = storageCapacity;
-        this.price = price;
-        this.laptopReviews = laptopReviews;
+        this.productId=productId;
     }
 
-    public ProductType getCategory() {
-        return category;
+    public int getLaptopId() {
+        return LaptopId;
     }
 
-    public void setCategory(ProductType category) {
-        this.category = category;
+    public void setLaptopId(int laptopId) {
+        LaptopId = laptopId;
     }
 
-    public long getLaptopId() {
-        return laptopId;
+    public String getCategoryName() {
+        return categoryName;
     }
 
-    public void setLaptopId(long laptopId) {
-        this.laptopId = laptopId;
+    public void setCategoryName(String categoryName) {
+        this.categoryName = categoryName;
     }
 
-    public String getModel() {
-        return model;
+    public String getLaptopType() {
+        return laptopType;
     }
 
-    public void setModel(String model) {
-        this.model = model;
+    public void setLaptopType(String laptopType) {
+        this.laptopType = laptopType;
     }
 
-    public LaptopType getType() {
-        return type;
-    }
-
-    public void setType(LaptopType type) {
-        this.type = type;
-    }
-
-    public String getcpuModel() {
+    public String getCpuModel() {
         return cpuModel;
     }
 
-    public void setcpuModel(String cpuModel) {
+    public void setCpuModel(String cpuModel) {
         this.cpuModel = cpuModel;
     }
 
-    public String getgpuModel() {
+    public String getGpuModel() {
         return gpuModel;
     }
 
-    public void setgpuModel(String gpuModel) {
+    public void setGpuModel(String gpuModel) {
         this.gpuModel = gpuModel;
     }
 
@@ -114,19 +100,11 @@ public class Laptop {
         this.storageCapacity = storageCapacity;
     }
 
-    public double getPrice() {
-        return price;
+    public int getProductId() {
+        return productId;
     }
 
-    public void setPrice(double price) {
-        this.price = price;
-    }
-
-    public List<LaptopReview> getlaptopReviews() {
-        return laptopReviews;
-    }
-
-    public void setlaptopReviews(List<LaptopReview> laptopReviews) {
-        this.laptopReviews = laptopReviews;
+    public void setProductId(int productId) {
+        this.productId = productId;
     }
 }

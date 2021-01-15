@@ -1,79 +1,66 @@
 package store.Products.entities.products;
 
-
-import store.Products.entities.reviews.HeadsetReview;
-import store.Products.entities.types.HeadsetType;
-import store.Products.entities.types.ProductType;
-
-import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
-import java.util.List;
+
 
 public class Headset {
 
-    private long headsetId;
+    private int headsetId;
     @NotNull(message = "Category cannot be null")
-    private ProductType category;
-    @NotNull(message = "Type cannot be null")
-    private HeadsetType type;
+    private String categoryName;
     @NotNull(message = "Model name cannot be null")
-    private String modelName;
+    private String headsetType;
     @NotNull(message = "Technology cannot be null")
     private String technology;
     @NotNull(message = "Sound cannot be null")
     private String sound;
-    @NotNull(message = "Connection cannot be null")
-    private String connection;
-    @NotNull(message = "Price cannot be null")
-    @Min(1)
-    private Double price;
-    private List<HeadsetReview> headsetReview;
-
+    @NotNull(message = "conectivity cannot be null")
+    private String conectivity;
+    private int productId;
     public Headset(){}
 
 
-    public Headset(long headsetId, ProductType category, HeadsetType type, String modelName, String technology, String sound, String connection, Double price, List<HeadsetReview> headsetReview) {
-        this.headsetId=headsetId;
-        this.category=category;
-        this.type = type;
-        this.modelName = modelName;
+    public Headset(String categoryName, String headsetType,  String technology,  String sound,  String conectivity,int productId) {
+        this.categoryName = categoryName;
+        this.headsetType = headsetType;
         this.technology = technology;
         this.sound = sound;
-        this.connection = connection;
-        this.price = price;
-        this.headsetReview=headsetReview;
+        this.conectivity = conectivity;
+        this.productId=productId;
     }
 
-    public long getHeadsetId() {
+    public Headset(int headsetId,String categoryName, String headsetType,  String technology,  String sound,  String conectivity,int productId) {
+        this.headsetId=headsetId;
+        this.categoryName = categoryName;
+        this.headsetType = headsetType;
+        this.technology = technology;
+        this.sound = sound;
+        this.conectivity = conectivity;
+        this.productId=productId;
+    }
+
+    public int getHeadsetId() {
         return headsetId;
     }
 
-    public void setHeadsetId(long headsetId) {
+    public void setHeadsetId(int headsetId) {
         this.headsetId = headsetId;
     }
 
-    public ProductType getCategory() {
-        return category;
+    public String getCategoryName() {
+        return categoryName;
     }
 
-    public void setCategory(ProductType category) {
-        this.category = category;
+    public void setCategoryName(String categoryName) {
+        this.categoryName = categoryName;
     }
 
-    public HeadsetType getType() {
-        return type;
+    public String getHeadsetType() {
+        return headsetType;
     }
 
-    public void setType(HeadsetType type) {
-        this.type = type;
-    }
-
-    public String getModelName() {
-        return modelName;
-    }
-
-    public void setModelName(String modelName) {
-        this.modelName = modelName;
+    public void setHeadsetType(String headsetType) {
+        this.headsetType = headsetType;
     }
 
     public String getTechnology() {
@@ -92,27 +79,19 @@ public class Headset {
         this.sound = sound;
     }
 
-    public String getConnection() {
-        return connection;
+    public String getConectivity() {
+        return conectivity;
     }
 
-    public void setConnection(String connection) {
-        this.connection = connection;
+    public void setConectivity(String conectivity) {
+        this.conectivity = conectivity;
     }
 
-    public double getPrice() {
-        return price;
+    public int getProductId() {
+        return productId;
     }
 
-    public void setPrice(Double price) {
-        this.price = price;
-    }
-
-    public List<HeadsetReview> getHeadsetReview() {
-        return headsetReview;
-    }
-
-    public void setHeadsetReview(List<HeadsetReview> headsetReview) {
-        this.headsetReview = headsetReview;
+    public void setProductId(int productId) {
+        this.productId = productId;
     }
 }

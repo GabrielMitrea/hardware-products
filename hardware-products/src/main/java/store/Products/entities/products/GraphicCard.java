@@ -1,20 +1,15 @@
 package store.Products.entities.products;
 
-import store.Products.entities.reviews.GraphicCardReview;
-import store.Products.entities.types.ProductType;
-
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
-import java.util.List;
+
 
 public class GraphicCard {
 
-    private long graphicCardId;
-    @NotNull(message = "Category cannot be null")
-    private ProductType category;
 
-    @NotNull(message = "Model name cannot be null")
-    private String modelName;
+    private int graphicCardId;
+
+    private String categoryName;
 
     @NotNull(message = "Memory size cannot be null")
     private String memorySize;
@@ -25,47 +20,45 @@ public class GraphicCard {
     @NotNull(message = "Interface cannot be null")
     private String interfacee;
 
-    @NotNull(message = "Price cannot be null")
-    @Min(1)
-    private double price;
-    private List<GraphicCardReview> graphicCardReview;
+    private int productId;
+
+
 
     public GraphicCard(){}
 
-    public GraphicCard(long graphicCardId, ProductType category, String modelName, String memorySize, String memoryType, String interfacee, double price, List<GraphicCardReview> graphicCardReview) {
-        this.graphicCardId=graphicCardId;
-        this.category=category;
-        this.modelName = modelName;
+    public GraphicCard(int graphicCardId, String categoryName,  String memorySize,    String memoryType,  String interfacee, int productId) {
+        this.graphicCardId = graphicCardId;
+        this.categoryName = categoryName;
         this.memorySize = memorySize;
         this.memoryType = memoryType;
         this.interfacee = interfacee;
-        this.price = price;
-        this.graphicCardReview=graphicCardReview;
+        this.productId = productId;
     }
 
-    public long getGraphicCardId() {
+    public int getGraphicCardId() {
         return graphicCardId;
     }
 
-    public void setGraphicCardId(long graphicCardId) {
+    public void setGraphicCardId(int graphicCardId) {
         this.graphicCardId = graphicCardId;
     }
 
-    public ProductType getCategory() {
-        return category;
+    public int getProductId() {
+        return productId;
     }
 
-    public void setCategory(ProductType category) {
-        this.category = category;
+    public void setProductId(int productId) {
+        this.productId = productId;
     }
 
-    public String getModelName() {
-        return modelName;
+    public String getCategoryName() {
+        return categoryName;
     }
 
-    public void setModelName(String modelName) {
-        this.modelName = modelName;
+    public void setCategoryName(String categoryName) {
+        this.categoryName = categoryName;
     }
+
 
     public String getMemorySize() {
         return memorySize;
@@ -91,19 +84,5 @@ public class GraphicCard {
         this.interfacee = interfacee;
     }
 
-    public double getPrice() {
-        return price;
-    }
 
-    public void setPrice(double price) {
-        this.price = price;
-    }
-
-    public List<GraphicCardReview> getGraphicCardReview() {
-        return graphicCardReview;
-    }
-
-    public void setGraphicCardReview(List<GraphicCardReview> graphicCardReview) {
-        this.graphicCardReview = graphicCardReview;
-    }
 }

@@ -3,6 +3,7 @@ package store.Products.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import store.Products.dto.GraphicCardProduct;
 import store.Products.entities.products.GraphicCard;
 import store.Products.service.GraphicCardService;
 
@@ -17,28 +18,24 @@ public class GraphicCardController {
     @Autowired
     private GraphicCardService graphicCardService;
 
+
     @GetMapping
-    public List<GraphicCard> getGraphicCard(@RequestParam(required = false) String interfacee, @RequestParam(required = false) String memorySize){
-        return graphicCardService.getGraphicCard(interfacee,memorySize);
+    public List<GraphicCardProduct> getGraphicCardProduct(){
+        return graphicCardService.getGraphicCardProduct();
     }
 
-    @PostMapping
-    public ResponseEntity<GraphicCard> addNewGraphicCard(
+    @PostMapping("/new")
+    public ResponseEntity<List<GraphicCard>> addNewGraphicCard(
             @Valid
             @RequestBody GraphicCard graphicCard){
-        GraphicCard addGraphicCard=graphicCardService.addNewGraphicCard(graphicCard);
-        return ResponseEntity
-                .created(URI.create("/graphicCard/" + addGraphicCard.getGraphicCardId()))
-                .body(addGraphicCard);
+        graphicCardService.addNewGraphicCard(graphicCard);
+        return ResponseEntity.created(null).build();
+
+
+    }
+    @DeleteMapping("/delete")
+    public List<GraphicCard> deleteGraphicCard(@RequestParam int id){
+        return graphicCardService.deleteGraphicCard(id);
     }
 
-    @GetMapping("/{graphicCardId}")
-    public GraphicCard getGraphicCardById(@PathVariable long graphicCardId){
-        return graphicCardService.getGraphicCardById(graphicCardId);
-    }
-
-    @PutMapping("/{graphicCardId}")
-    public GraphicCard updateGraphicCard(@RequestBody GraphicCard graphicCard, @PathVariable long graphicCardId){
-        return graphicCardService.updateGraphicCard(graphicCard, graphicCardId);
-    }
 }

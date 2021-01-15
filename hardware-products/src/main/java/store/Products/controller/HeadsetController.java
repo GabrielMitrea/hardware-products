@@ -3,8 +3,8 @@ package store.Products.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import store.Products.dto.HeadsetProduct;
 import store.Products.entities.products.Headset;
-import store.Products.entities.types.HeadsetType;
 import store.Products.service.HeadsetService;
 
 import javax.validation.Valid;
@@ -18,27 +18,19 @@ public class HeadsetController {
     @Autowired
     private HeadsetService headsetService;
 
+    @PostMapping("/add")
+    public ResponseEntity<List<Headset>> addNewheadset(@RequestBody Headset headset){
+         headsetService.addNewHeadset(headset);
+        return ResponseEntity.created(null).build();
+
+    }
     @GetMapping
-    public List<Headset> getHeadset(@RequestParam(required = false) HeadsetType type, @RequestParam(required = false) String sound){
-        return headsetService.getHeadset(type, sound);
+    public List<HeadsetProduct> getHeadsetProduct(){
+        return headsetService.getHeadsetProduct();
+    }
+    @DeleteMapping("/delete")
+    public void deleteheadset(@RequestParam int id){
+        headsetService.deleteHeadset(id);
     }
 
-    @PostMapping
-    public ResponseEntity<Headset> addNewHeadset(
-            @Valid
-            @RequestBody Headset headset){
-        Headset addHeadset=headsetService.addNewHeadset(headset);
-        return ResponseEntity
-                .created(URI.create("/headset/" + addHeadset.getHeadsetId()))
-                .body(addHeadset);
-    }
-
-    @GetMapping("/{headsetId}")
-    public Headset getHeadsetBygraphicCardId(@PathVariable long headsetId){
-        return headsetService.getHeadsetById(headsetId);
-    }
-    @PutMapping("/{headsetId}")
-    public Headset updateHeadset(@RequestBody Headset headset, @PathVariable long headsetId){
-        return headsetService.updateHeadset(headset, headsetId);
-    }
 }

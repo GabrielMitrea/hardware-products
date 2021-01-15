@@ -27,8 +27,8 @@ public class MainController {
     }
 
 
-    @DeleteMapping("/deleteProduct/{id}")
-    public List<Products> deleteProduct(@PathVariable long id){
-        return mainService.deleteProduct(id);
-    }
+//    @DeleteMapping("/deleteProduct/{id}")
+//    public List<Products> deleteProduct(@PathVariable long id){
+//        return mainService.deleteProduct(id);
+//    }
 }

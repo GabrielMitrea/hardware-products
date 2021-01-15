@@ -1,22 +1,34 @@
 package store.Products.entities.shoppingCart;
 
-import java.util.Date;
+
+import java.sql.Date;
 
 public class Order {
 
     private int orderId;
     private int customerId;
+    private int productId;
+    private long orderNumber;
     private Date dateCreated;
-    private String customerName;
-    private double totalPrice;
+    private Date expectedShipping;
 
     public Order(){}
 
-    public Order(int customerId, Date dateCreated, String customerName, double totalPrice) {
+    public Order(int orderId, int customerId, int productId, long orderNumber, Date dateCreated, Date expectedShipping) {
+        this.orderId = orderId;
         this.customerId = customerId;
+        this.productId = productId;
+        this.orderNumber = orderNumber;
         this.dateCreated = dateCreated;
-        this.customerName = customerName;
-        this.totalPrice = totalPrice;
+        this.expectedShipping = expectedShipping;
+    }
+
+    public int getProductId() {
+        return productId;
+    }
+
+    public void setProductId(int productId) {
+        this.productId = productId;
     }
 
     public int getOrderId() {
@@ -35,6 +47,14 @@ public class Order {
         this.customerId = customerId;
     }
 
+    public long getOrderNumber() {
+        return orderNumber;
+    }
+
+    public void setOrderNumber(long orderNumber) {
+        this.orderNumber = orderNumber;
+    }
+
     public Date getDateCreated() {
         return dateCreated;
     }
@@ -43,19 +63,11 @@ public class Order {
         this.dateCreated = dateCreated;
     }
 
-    public String getCustomerName() {
-        return customerName;
+    public Date getExpectedShipping() {
+        return expectedShipping;
     }
 
-    public void setCustomerName(String customerName) {
-        this.customerName = customerName;
-    }
-
-    public double getTotalPrice() {
-        return totalPrice;
-    }
-
-    public void setTotalPrice(double totalPrice) {
-        this.totalPrice = totalPrice;
+    public void setExpectedShipping(Date expectedShipping) {
+        this.expectedShipping = expectedShipping;
     }
 }

@@ -20,6 +20,15 @@ public class Customer {
         this.country = country;
         this.address = address;
     }
+    public Customer(int customerId,String firstName, String lastName, String email, String phoneNumber, String country, String address) {
+        this.customerId=customerId;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
+        this.phoneNumber = phoneNumber;
+        this.country = country;
+        this.address = address;
+    }
 
     public int getCustomerId() {
         return customerId;

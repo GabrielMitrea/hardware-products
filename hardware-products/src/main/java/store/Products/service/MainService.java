@@ -21,7 +21,7 @@ public class MainService {
         return mainRepository.getProducts();
     }
 
-    public List<Products> deleteProduct(long id){
-        return mainRepository.deleteProduct(id);
-    }
+//    public List<Products> deleteProduct(long id){
+//        return mainRepository.deleteProduct(id);
+//    }
 }

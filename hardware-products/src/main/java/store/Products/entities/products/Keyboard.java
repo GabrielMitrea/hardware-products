@@ -1,75 +1,59 @@
 package store.Products.entities.products;
 
 
-import store.Products.entities.reviews.KeyboardReview;
-import store.Products.entities.types.KeyboardType;
-import store.Products.entities.types.ProductType;
+
 
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
-import java.util.List;
+
 
 public class Keyboard {
 
-    private long keyboardId;
+    private int keyboardId;
     @NotNull(message = "Category cannot be null")
-    private ProductType category;
-    @NotNull(message = "Model name cannot be null")
-    private String modelName;
+    private String categoryName;
     @NotNull(message = "Type  cannot be null")
-    private KeyboardType type;
+    private String keyboardType;
     @NotNull(message = "Is lightened property cannot be null")
     private String isLightened;
     @NotNull(message = "Is mechanic property cannot be null")
     private String isMechanic;
-    @NotNull(message = "Price cannot be null")
-    @Min(1)
-    private Double price;
-    private List<KeyboardReview> keyboardReview;
+    private int productId;
 
     public Keyboard(){}
 
-    public Keyboard(long keyboardId, ProductType category, String modelName, KeyboardType type, String isLightened, String isMechanic, Double price, List<KeyboardReview> keyboardReview) {
-        this.keyboardId=keyboardId;
-        this.category=category;
-        this.modelName = modelName;
-        this.type = type;
+    public Keyboard(int keyboardId, String categoryName, String keyboardType, String isLightened,  String isMechanic, int productId) {
+        this.keyboardId = keyboardId;
+        this.categoryName = categoryName;
+        this.keyboardType = keyboardType;
         this.isLightened = isLightened;
-        this.isMechanic=isMechanic;
-        this.price = price;
-        this.keyboardReview=keyboardReview;
+        this.isMechanic = isMechanic;
+        this.productId = productId;
     }
 
-    public long getKeyboardId() {
+    public int getKeyboardId() {
         return keyboardId;
     }
 
-    public void setKeyboardId(long keyboardId) {
+    public void setKeyboardId(int keyboardId) {
         this.keyboardId = keyboardId;
     }
 
-    public ProductType getCategory() {
-        return category;
+    public String getCategoryName() {
+        return categoryName;
     }
 
-    public void setCategory(ProductType category) {
-        this.category = category;
+    public void setCategoryName(String categoryName) {
+        this.categoryName = categoryName;
     }
 
-    public String getModelName() {
-        return modelName;
+
+    public String getKeyboardType() {
+        return keyboardType;
     }
 
-    public void setModelName(String modelName) {
-        this.modelName = modelName;
-    }
-
-    public KeyboardType getType() {
-        return type;
-    }
-
-    public void setType(KeyboardType type) {
-        this.type = type;
+    public void setKeyboardType(String keyboardType) {
+        this.keyboardType = keyboardType;
     }
 
     public String getIsLightened() {
@@ -88,19 +72,11 @@ public class Keyboard {
         this.isMechanic = isMechanic;
     }
 
-    public double getPrice() {
-        return price;
+    public int getProductId() {
+        return productId;
     }
 
-    public void setPrice(Double price) {
-        this.price = price;
-    }
-
-    public List<KeyboardReview> getKeyboardReview() {
-        return keyboardReview;
-    }
-
-    public void setKeyboardReview(List<KeyboardReview> keyboardReview) {
-        this.keyboardReview = keyboardReview;
+    public void setProductId(int productId) {
+        this.productId = productId;
     }
 }

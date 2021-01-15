@@ -2,6 +2,7 @@ package store.Products.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import store.Products.dto.GraphicCardProduct;
 import store.Products.exception.utils.ProductNotFoundException;
 import store.Products.entities.products.GraphicCard;
 import store.Products.repository.GraphicCardRepository;
@@ -15,21 +16,33 @@ public class GraphicCardService {
     @Autowired
     private GraphicCardRepository graphicCardRepository;
 
-    public List<GraphicCard> getGraphicCard(String interfacee, String memorySize){
-        return graphicCardRepository.getGraphicCard(interfacee,memorySize);
+//    public List<GraphicCard> getGraphicCard(String interfacee, String memorySize){
+//        return graphicCardRepository.getGraphicCard(interfacee,memorySize);
+//    }
+
+    public List<GraphicCardProduct> getGraphicCardProduct(){
+        return graphicCardRepository.getGraphicCardProduct();
+
+    }
+    public List<GraphicCard> getGraphicCard(){
+        return graphicCardRepository.getGraphicCard();
     }
 
-    public GraphicCard addNewGraphicCard(GraphicCard graphicCard) {
+    public List<GraphicCard> addNewGraphicCard(GraphicCard graphicCard) {
         return graphicCardRepository.addNewGraphicCard(graphicCard);
     }
-    public GraphicCard getGraphicCardById(long graphicCardId){
-        Optional<GraphicCard> graphicCardOptional=graphicCardRepository.getGraphicCardById(graphicCardId);
-        if(graphicCardOptional.isPresent()){
-            return graphicCardOptional.get();
-        }else throw new ProductNotFoundException("Graphic card with Id: " +graphicCardId+ " not found " );
+
+    public List<GraphicCard> deleteGraphicCard(int id){
+        return graphicCardRepository.deleteGraphicCard(id);
     }
-    public GraphicCard updateGraphicCard(GraphicCard graphicCard, long graphicCardId){
-        return graphicCardRepository.updateGraphicCard(graphicCard, graphicCardId);
-    }
+//    public GraphicCard getGraphicCardById(long graphicCardId){
+//        Optional<GraphicCard> graphicCardOptional=graphicCardRepository.getGraphicCardById(graphicCardId);
+//        if(graphicCardOptional.isPresent()){
+//            return graphicCardOptional.get();
+//        }else throw new ProductNotFoundException("Graphic card with Id: " +graphicCardId+ " not found " );
+//    }
+//    public GraphicCard updateGraphicCard(GraphicCard graphicCard, long graphicCardId){
+//        return graphicCardRepository.updateGraphicCard(graphicCard, graphicCardId);
+//    }
 
 }
