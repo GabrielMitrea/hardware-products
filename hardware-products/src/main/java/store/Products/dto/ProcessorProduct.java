@@ -8,8 +8,6 @@ import javax.validation.constraints.NotNull;
 public class ProcessorProduct {
 
 
-    @NotBlank(message = "the category name cannot be null")
-    private String categoryName;
     @NotBlank(message = "the product name cannot be null")
     private String productName;
     @NotBlank(message = "the core of the processor cannot be null")
@@ -28,8 +26,8 @@ public class ProcessorProduct {
 
     public ProcessorProduct(){}
 
-    public ProcessorProduct(String categoryName, String productName, String core, String frequency, String socket, String series, String manufacturingTechnology, double productPrice) {
-        this.categoryName = categoryName;
+    public ProcessorProduct(String productName, String core, String frequency, String socket, String series, String manufacturingTechnology, double productPrice) {
+
         this.productName = productName;
         this.core = core;
         this.frequency = frequency;
@@ -39,13 +37,6 @@ public class ProcessorProduct {
         this.productPrice = productPrice;
     }
 
-    public String getCategoryName() {
-        return categoryName;
-    }
-
-    public void setCategoryName(String categoryName) {
-        this.categoryName = categoryName;
-    }
 
     public String getProductName() {
         return productName;

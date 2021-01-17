@@ -14,6 +14,12 @@ public class Order {
 
     public Order(){}
 
+    public Order( long orderNumber, Date dateCreated, Date expectedShipping) {
+        this.orderNumber = orderNumber;
+        this.dateCreated = dateCreated;
+        this.expectedShipping = expectedShipping;
+    }
+
     public Order(int orderId, int customerId, int productId, long orderNumber, Date dateCreated, Date expectedShipping) {
         this.orderId = orderId;
         this.customerId = customerId;

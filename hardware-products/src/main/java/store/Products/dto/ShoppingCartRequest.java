@@ -10,16 +10,16 @@ public class ShoppingCartRequest {
     @NotNull(message = "the quantity of the product cannot be null")
     private int quantity;
     @NotNull(message = "the price of the product cannot be null")
-    private int price;
+    private double productPrice;
     @NotNull(message = "total price cannot be null")
-    private int totalPrice;
+    private double totalPrice;
 
     public ShoppingCartRequest(){}
 
-    public ShoppingCartRequest(String productName, int quantity, int price, int totalPrice) {
+    public ShoppingCartRequest(String productName, int quantity, double productPrice, double totalPrice) {
         this.productName = productName;
         this.quantity = quantity;
-        this.price = price;
+        this.productPrice = productPrice;
         this.totalPrice = totalPrice;
     }
 
@@ -39,17 +39,21 @@ public class ShoppingCartRequest {
         this.quantity = quantity;
     }
 
-    public int getPrice() {
-        return price;
+    public double getProductPrice() {
+        return productPrice;
     }
 
-    public void setPrice(int price) {
-        this.price = price;
+    public void setProductPrice(double productPrice) {
+        this.productPrice = productPrice;
     }
 
-    public int getTotalPrice() {
-        totalPrice=quantity*price;
+    public double getTotalPrice() {
+        totalPrice=productPrice*quantity;
         return totalPrice;
+    }
+
+    public void setTotalPrice(double totalPrice) {
+        this.totalPrice = totalPrice;
     }
 
     public void setTotalPrice(int totalPrice) {

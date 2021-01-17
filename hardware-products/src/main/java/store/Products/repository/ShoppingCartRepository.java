@@ -35,10 +35,8 @@ public class ShoppingCartRepository {
         jdbcTemplate.update(connection -> {
             PreparedStatement preparedStatement=connection.prepareStatement(ADD_ITEM_CART, Statement.RETURN_GENERATED_KEYS);
             preparedStatement.setInt(1,shoppingCart.getProductId());
-            preparedStatement.setString(2,shoppingCart.getProductName());
-            preparedStatement.setInt(3,shoppingCart.getQuantity());
-            preparedStatement.setDouble(4,shoppingCart.getPrice());
-            preparedStatement.setDouble(5,shoppingCart.getTotalPrice());
+            preparedStatement.setInt(2,shoppingCart.getQuantity());
+            preparedStatement.setDouble(3,shoppingCart.getTotalPrice());
             return  preparedStatement;
         }, keyHolder);
         shoppingCart.setCartId(keyHolder.getKey().intValue());

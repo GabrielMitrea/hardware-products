@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.*;
 import store.Products.dto.KeyboardProduct;
 import store.Products.dto.MouseProduct;
 import store.Products.entities.products.Keyboard;
+import store.Products.mapper.ProductMapper;
 import store.Products.service.KeyboardService;
 
 import javax.validation.Valid;
@@ -26,14 +27,14 @@ public class KeyboardController {
 
 
     @PostMapping("/new")
-    public ResponseEntity<List<Keyboard>> addNewKeyboard(@RequestBody Keyboard keyboard){
+    public ResponseEntity<List<Keyboard>> addNewKeyboard(@Valid @RequestBody Keyboard keyboard){
          keyboardService.addNewKeyboard(keyboard);
         return ResponseEntity.created(null).build();
 
     }
     @DeleteMapping("/delete")
-    public List<Keyboard> deleteKeyboard(@RequestParam int id){
-        return keyboardService.deleteKeyboard(id);
+    public void deleteKeyboard(@RequestParam int id){
+         keyboardService.deleteKeyboard(id);
     }
 
 }

@@ -16,33 +16,19 @@ public class GraphicCardService {
     @Autowired
     private GraphicCardRepository graphicCardRepository;
 
-//    public List<GraphicCard> getGraphicCard(String interfacee, String memorySize){
-//        return graphicCardRepository.getGraphicCard(interfacee,memorySize);
-//    }
 
     public List<GraphicCardProduct> getGraphicCardProduct(){
         return graphicCardRepository.getGraphicCardProduct();
 
-    }
-    public List<GraphicCard> getGraphicCard(){
-        return graphicCardRepository.getGraphicCard();
     }
 
     public List<GraphicCard> addNewGraphicCard(GraphicCard graphicCard) {
         return graphicCardRepository.addNewGraphicCard(graphicCard);
     }
 
-    public List<GraphicCard> deleteGraphicCard(int id){
-        return graphicCardRepository.deleteGraphicCard(id);
+    public void deleteGraphicCard(int id){
+        graphicCardRepository.deleteGraphicCard(id);
     }
-//    public GraphicCard getGraphicCardById(long graphicCardId){
-//        Optional<GraphicCard> graphicCardOptional=graphicCardRepository.getGraphicCardById(graphicCardId);
-//        if(graphicCardOptional.isPresent()){
-//            return graphicCardOptional.get();
-//        }else throw new ProductNotFoundException("Graphic card with Id: " +graphicCardId+ " not found " );
-//    }
-//    public GraphicCard updateGraphicCard(GraphicCard graphicCard, long graphicCardId){
-//        return graphicCardRepository.updateGraphicCard(graphicCard, graphicCardId);
-//    }
+
 
 }

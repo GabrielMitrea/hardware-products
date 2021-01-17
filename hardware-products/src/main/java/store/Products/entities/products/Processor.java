@@ -7,17 +7,10 @@ import javax.validation.constraints.NotNull;
 public class Processor {
 
     private int processorId;
-    @NotNull(message = "Category cannot be null")
-    private String categoryName;
-    @NotNull(message = "Core cannot be null")
     private String core;
-    @NotNull(message = "Frequency cannot be null")
     private String frequency;
-    @NotNull(message = "Socket cannot be null")
     private String socket;
-    @NotNull(message = "Series cannot be null")
     private String series;
-    @NotNull(message = "Manufacturing technology cannot be null")
     private String manufacturingTechnology;
     private int productId;
 
@@ -25,9 +18,17 @@ public class Processor {
 
     public Processor(){}
 
-    public Processor(int processorId,  String categoryName,  String core,  String frequency,  String socket,String series,  String manufacturingTechnology,int productId) {
+    public Processor(String core,  String frequency,  String socket,String series,  String manufacturingTechnology) {
+        this.core = core;
+        this.frequency = frequency;
+        this.socket = socket;
+        this.series = series;
+        this.manufacturingTechnology = manufacturingTechnology;
+
+    }
+
+    public Processor(int processorId,  String core,  String frequency,  String socket,String series,  String manufacturingTechnology,int productId) {
         this.processorId = processorId;
-        this.categoryName = categoryName;
         this.core = core;
         this.frequency = frequency;
         this.socket = socket;
@@ -43,15 +44,6 @@ public class Processor {
     public void setProcessorId(int processorId) {
         this.processorId = processorId;
     }
-
-    public String getCategoryName() {
-        return categoryName;
-    }
-
-    public void setCategoryName(String categoryName) {
-        this.categoryName = categoryName;
-    }
-
 
 
     public String getCore() {

@@ -10,8 +10,6 @@ public class HeadsetProduct {
 
     @NotBlank(message = "product name cannot be null")
     private String productName;
-    @NotBlank(message = "category name cannot be null")
-    private String categoryName;
     @NotBlank(message = "the type of the headset cannot be null")
     private String headsetType;
     @NotBlank(message = "the technology cannot be null")
@@ -26,9 +24,8 @@ public class HeadsetProduct {
 
     public HeadsetProduct(){}
 
-    public HeadsetProduct(String productName, String categoryName, String headsetType, String technology, String sound, String conectivity, double productPrice) {
+    public HeadsetProduct(String productName, String headsetType, String technology, String sound, String conectivity, double productPrice) {
         this.productName = productName;
-        this.categoryName = categoryName;
         this.headsetType = headsetType;
         this.technology = technology;
         this.sound = sound;
@@ -44,13 +41,6 @@ public class HeadsetProduct {
         this.productName = productName;
     }
 
-    public String getCategoryName() {
-        return categoryName;
-    }
-
-    public void setCategoryName(String categoryName) {
-        this.categoryName = categoryName;
-    }
 
     public String getHeadsetType() {
         return headsetType;

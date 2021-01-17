@@ -15,29 +15,6 @@ public class LaptopService {
     @Autowired
     private LaptopRepository laptopRepository;
 
-//    public List<Laptop> getLaptop(LaptopType type, String gpuModel){
-//        return laptopRepository.getLaptop(type, gpuModel);
-//    }
-//
-//    public Laptop addNewLaptop(Laptop laptop){
-//        return laptopRepository.addNewLaptop(laptop);
-//    }
-//
-//
-//    public Laptop getLaptopById(long laptopId){
-//        Optional<Laptop> laptopOptional=laptopRepository.getLaptopById(laptopId);
-//        if(laptopOptional.isPresent()){
-//            return laptopOptional.get();
-//        }else throw new ProductNotFoundException("Laptop with Id: " +laptopId+ " not found " );
-//    }
-//
-//    public Laptop updateLaptop(Laptop laptop, long laptopId){
-//        return laptopRepository.updateLaptop(laptop, laptopId);
-//    }
-
-    public List<Laptop> getLaptop(){
-       return laptopRepository.getLaptop();
-}
 
     public List<LaptopProduct> getLaptopProduct(){
         return laptopRepository.getLaptopProduct();
@@ -45,7 +22,7 @@ public class LaptopService {
     public List<Laptop> addNewLaptop(Laptop laptop){
         return laptopRepository.addNewLaptop(laptop);
     }
-    public List<Laptop> deleteLaptop(int id){
-        return laptopRepository.deleteLaptop(id);
+    public void deleteLaptop(int id){
+         laptopRepository.deleteLaptop(id);
     }
 }

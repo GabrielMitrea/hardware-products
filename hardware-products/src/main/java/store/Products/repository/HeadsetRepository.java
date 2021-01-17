@@ -1,5 +1,7 @@
 package store.Products.repository;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -20,15 +22,14 @@ import static store.Products.querys.HeadsetQuerys.ADD_HEADSET_SQL;
 @Repository
 public class HeadsetRepository {
 
+    private static final Logger logger= LoggerFactory.getLogger(HeadsetRepository.class);
 
     @Autowired
     private JdbcTemplate jdbcTemplate;
 
-    public List<Headset> getHeadset(){
-        return jdbcTemplate.query(HeadsetQuerys.GET_HEADSET_SQL,new BeanPropertyRowMapper<>(Headset.class));
-    }
 
     public List<HeadsetProduct> getHeadsetProduct(){
+        logger.info("Retrieving headsets....{}",jdbcTemplate.query(HeadsetQuerys.GET_HEADSET1_SQL,new BeanPropertyRowMapper<>(HeadsetProduct.class)));
         return jdbcTemplate.query(HeadsetQuerys.GET_HEADSET1_SQL,new BeanPropertyRowMapper<>(HeadsetProduct.class));
     }
 
@@ -36,16 +37,16 @@ public class HeadsetRepository {
         KeyHolder keyHolder=new GeneratedKeyHolder();
         jdbcTemplate.update(connection -> {
             PreparedStatement preparedStatement= connection.prepareStatement(ADD_HEADSET_SQL, Statement.RETURN_GENERATED_KEYS);
-            preparedStatement.setString(1, headset.getCategoryName());
-            preparedStatement.setString(2, headset.getHeadsetType());
-            preparedStatement.setString(3, headset.getTechnology());
-            preparedStatement.setString(4, headset.getSound());
-            preparedStatement.setString(5, headset.getConectivity());
-            preparedStatement.setInt(6, headset.getProductId());
+            preparedStatement.setString(1, headset.getHeadsetType());
+            preparedStatement.setString(2, headset.getTechnology());
+            preparedStatement.setString(3, headset.getSound());
+            preparedStatement.setString(4, headset.getConectivity());
+            preparedStatement.setInt(5, headset.getProductId());
             return preparedStatement;
         }, keyHolder);
         headset.setHeadsetId(keyHolder.getKey().intValue());
-        return jdbcTemplate.query(HeadsetQuerys.GET_HEADSET_SQL,new BeanPropertyRowMapper<>(Headset.class));
+        logger.info("Adding new headset...{}",headset);
+        return jdbcTemplate.query(HeadsetQuerys.GET_HEADSET1_SQL,new BeanPropertyRowMapper<>(Headset.class));
 
     }
     public void deleteHeadset(int id){

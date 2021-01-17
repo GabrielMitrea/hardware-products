@@ -6,7 +6,6 @@ import javax.validation.constraints.NotNull;
 
 public class UpdateProductDto {
 
-    @NotNull(message = "id cannot be null")
     private int productId;
     @NotNull(message = "the price of the product cannot be null")
     @Min(1)

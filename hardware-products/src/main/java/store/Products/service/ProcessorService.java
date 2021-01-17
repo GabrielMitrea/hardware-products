@@ -17,27 +17,6 @@ public class ProcessorService {
     @Autowired
     private ProcessorRepository processorRepository;
 
-//    public List<Processor> getProcessor(String core, String series){
-//        return processorRepository.getProcessor(core,series);
-//    }
-//
-//    public Processor addNewProcessor(Processor processor){
-//        return processorRepository.addNewProcessor(processor);
-//    }
-//    public Processor getProcessorById(long processorId){
-//        Optional<Processor> processorOptional=processorRepository.getProcessorById(processorId);
-//        if(processorOptional.isPresent()){
-//            return processorOptional.get();
-//        }else throw new ProductNotFoundException("Processor with Id: " +processorId+ " not found " );
-//    }
-//
-//    public Processor updateProcessor(Processor processor, long processorId){
-//        return processorRepository.updateProcessor(processor, processorId);
-//    }
-
-    public List<Processor> getProcessor(){
-       return processorRepository.getProcessor();
-}
    public List<ProcessorProduct> getProcessorProduct(){
         return processorRepository.getProcessorProduct();
    }
@@ -45,7 +24,7 @@ public class ProcessorService {
     public List<Processor> addNewProcessor(Processor processor){
         return processorRepository.addNewProcessor(processor);
     }
-    public List<Processor> deleteProcessor(int id){
-        return processorRepository.deleteProcessor(id);
+    public void deleteProcessor(int id){
+         processorRepository.deleteProcessor(id);
     }
 }

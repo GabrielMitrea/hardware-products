@@ -8,27 +8,24 @@ public class GraphicCard {
 
 
     private int graphicCardId;
-
-    private String categoryName;
-
-    @NotNull(message = "Memory size cannot be null")
     private String memorySize;
-
-    @NotNull(message = "Memory type  cannot be null")
     private String memoryType;
-
-    @NotNull(message = "Interface cannot be null")
     private String interfacee;
-
     private int productId;
 
 
 
     public GraphicCard(){}
 
-    public GraphicCard(int graphicCardId, String categoryName,  String memorySize,    String memoryType,  String interfacee, int productId) {
+    public GraphicCard( String memorySize, String memoryType,  String interfacee) {
+        this.memorySize = memorySize;
+        this.memoryType = memoryType;
+        this.interfacee = interfacee;
+
+    }
+
+    public GraphicCard(int graphicCardId,  String memorySize,    String memoryType,  String interfacee, int productId) {
         this.graphicCardId = graphicCardId;
-        this.categoryName = categoryName;
         this.memorySize = memorySize;
         this.memoryType = memoryType;
         this.interfacee = interfacee;
@@ -49,14 +46,6 @@ public class GraphicCard {
 
     public void setProductId(int productId) {
         this.productId = productId;
-    }
-
-    public String getCategoryName() {
-        return categoryName;
-    }
-
-    public void setCategoryName(String categoryName) {
-        this.categoryName = categoryName;
     }
 
 

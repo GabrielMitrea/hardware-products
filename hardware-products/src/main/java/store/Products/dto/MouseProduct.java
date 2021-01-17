@@ -6,8 +6,7 @@ import javax.validation.constraints.NotNull;
 
 public class MouseProduct {
 
-    @NotBlank(message = "the category name cannot be null")
-    private String categoryName;
+
     @NotBlank(message = "the product name cannot be null")
     private String productName;
     @NotBlank(message = "the type of the mouse cannot be null")
@@ -22,8 +21,14 @@ public class MouseProduct {
 
     public MouseProduct(){}
 
-    public MouseProduct(String categoryName,String productName, String mouseType, String maxResolution, String interfacee, double productPrice) {
-        this.categoryName = categoryName;
+    public MouseProduct( String mouseType, String maxResolution, String interfacee) {
+        this.mouseType = mouseType;
+        this.maxResolution = maxResolution;
+        this.interfacee = interfacee;
+
+    }
+
+    public MouseProduct(String productName, String mouseType, String maxResolution, String interfacee, double productPrice) {
         this.productName = productName;
         this.mouseType = mouseType;
         this.maxResolution = maxResolution;
@@ -39,13 +44,6 @@ public class MouseProduct {
         this.productName = productName;
     }
 
-    public String getCategoryName() {
-        return categoryName;
-    }
-
-    public void setCategoryName(String categoryName) {
-        this.categoryName = categoryName;
-    }
 
     public String getMouseType() {
         return mouseType;

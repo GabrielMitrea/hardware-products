@@ -8,8 +8,7 @@ import javax.validation.constraints.NotNull;
 
 public class GraphicCardProduct {
 
-    @NotBlank(message = "the name of the category cannot be null")
-    private String categoryName;
+
     @NotBlank(message = "product name cannot be null")
     private String productName;
     @NotBlank(message = "memory size cannot be null")
@@ -24,8 +23,8 @@ public class GraphicCardProduct {
 
     public GraphicCardProduct(){}
 
-    public GraphicCardProduct(String categoryName, String productName, String memorySize, String memoryType, String interfacee, double productPrice) {
-        this.categoryName = categoryName;
+    public GraphicCardProduct( String productName, String memorySize, String memoryType, String interfacee, double productPrice) {
+
         this.productName = productName;
         this.memorySize = memorySize;
         this.memoryType = memoryType;
@@ -33,13 +32,7 @@ public class GraphicCardProduct {
         this.productPrice = productPrice;
     }
 
-    public String getCategoryName() {
-        return categoryName;
-    }
 
-    public void setCategoryName(String categoryName) {
-        this.categoryName = categoryName;
-    }
 
     public String getProductName() {
         return productName;

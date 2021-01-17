@@ -33,8 +33,8 @@ public class ProcessorController {
 
     }
     @DeleteMapping("/delete")
-    public List<Processor> deleteProcessor(@RequestParam int id){
-        return processorService.deleteProcessor(id);
+    public void deleteProcessor(@RequestParam int id){
+         processorService.deleteProcessor(id);
     }
 
 

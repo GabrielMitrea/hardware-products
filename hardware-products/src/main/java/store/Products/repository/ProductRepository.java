@@ -32,8 +32,9 @@ public class ProductRepository {
         KeyHolder keyHolder=new GeneratedKeyHolder();
         jdbcTemplate.update(connection -> {
             PreparedStatement preparedStatement= connection.prepareStatement(ADD_PRODUCT_SQL, Statement.RETURN_GENERATED_KEYS);
-            preparedStatement.setString(1, product.getProductName());
-            preparedStatement.setDouble(2, product.getProductPrice());
+            preparedStatement.setInt(1,product.getCategoryId());
+            preparedStatement.setString(2, product.getProductName());
+            preparedStatement.setDouble(3, product.getProductPrice());
             return preparedStatement;
         }, keyHolder);
         product.setProductId(keyHolder.getKey().intValue());
@@ -45,11 +46,12 @@ public class ProductRepository {
         jdbcTemplate.update(UPDATE_PRODUCT_SQL, product.getProductPrice(),product.getProductId());
     }
 
-    public Optional<Product> getProduct(int productId) {
+    public Optional<Product> getProductById(int productId) {
        String sql = "select * from product p where p.productId = ?";
 
         RowMapper<Product> mapper = (resultSet, rowNum) ->
                 new Product(resultSet.getInt("productId"),
+                        resultSet.getInt("categoryId"),
                         resultSet.getString("productName"),
                         resultSet.getDouble("productPrice"));
         List<Product> products = jdbcTemplate.query(sql, mapper, productId);

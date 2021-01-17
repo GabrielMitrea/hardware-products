@@ -6,8 +6,7 @@ import javax.validation.constraints.NotNull;
 
 public class KeyboardProduct {
 
-    @NotBlank(message = "category name cannot be null")
-    private String categoryName;
+
     @NotBlank(message = "product name cannot be null")
     private String productName;
     @NotBlank(message = "the type of the keyboard cannot be null")
@@ -22,8 +21,8 @@ public class KeyboardProduct {
 
     public KeyboardProduct(){}
 
-    public KeyboardProduct(String categoryName, String productName, String keyboardType, String isLightened, String isMechanic, double productPrice) {
-        this.categoryName = categoryName;
+    public KeyboardProduct( String productName, String keyboardType, String isLightened, String isMechanic, double productPrice) {
+
         this.productName = productName;
         this.keyboardType = keyboardType;
         this.isLightened = isLightened;
@@ -31,13 +30,7 @@ public class KeyboardProduct {
         this.productPrice = productPrice;
     }
 
-    public String getCategoryName() {
-        return categoryName;
-    }
 
-    public void setCategoryName(String categoryName) {
-        this.categoryName = categoryName;
-    }
 
     public String getProductName() {
         return productName;

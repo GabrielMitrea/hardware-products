@@ -52,8 +52,8 @@ public class ProductController {
         productService.updateProduct(productMapper.updateProductDto(updateProductDto));
     }
     @GetMapping("/{productId}")
-    public Product getProduct(@PathVariable int productId) {
-        return productService.getProduct(productId);
+    public Product getProductById(@PathVariable int productId) {
+        return productService.getProductById(productId);
     }
     
 }

@@ -6,6 +6,7 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import store.Products.dto.MouseProduct;
 import store.Products.entities.products.Mouse;
+import store.Products.mapper.ProductMapper;
 import store.Products.service.MouseService;
 
 import javax.validation.Valid;
@@ -20,21 +21,21 @@ public class MouseController {
 
     @Autowired
     private MouseService mouseService;
-
-
+    @Autowired
+    private ProductMapper productMapper;
     @GetMapping
     public List<MouseProduct> getMouseProduct(){
         return mouseService.getMouseProduct();
     }
     @PostMapping("/new")
-    public ResponseEntity<List<Mouse>> addNewMouse(@RequestBody Mouse mouse){
+    public ResponseEntity<List<Mouse>> addNewMouse(@Valid @RequestBody Mouse mouse){
          mouseService.addNewMouse(mouse);
         return ResponseEntity.created(null).build();
 
     }
     @DeleteMapping("/delete")
-    public List<Mouse> deleteMouse(@RequestParam int id){
-        return mouseService.deleteMouse(id);
+    public void deleteMouse(@RequestParam int id){
+        mouseService.deleteMouse(id);
     }
 
 

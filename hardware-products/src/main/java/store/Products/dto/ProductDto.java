@@ -6,6 +6,8 @@ import javax.validation.constraints.NotNull;
 
 public class ProductDto {
 
+    @NotBlank(message = "category name cannot be null")
+    private String categoryName;
     @NotBlank(message = "the name of the product cannot be null")
     private String productName;
     @NotNull(message = "the price of the product cannot be null")
@@ -14,9 +16,18 @@ public class ProductDto {
 
     public ProductDto(){}
 
-    public ProductDto(String productName, double productPrice) {
+    public ProductDto(String categoryName,String productName, double productPrice) {
+        this.categoryName=categoryName;
         this.productName = productName;
         this.productPrice = productPrice;
+    }
+
+    public String getCategoryName() {
+        return categoryName;
+    }
+
+    public void setCategoryName(String categoryName) {
+        this.categoryName = categoryName;
     }
 
     public String getProductName() {

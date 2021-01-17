@@ -6,8 +6,7 @@ import javax.validation.constraints.NotNull;
 
 public class LaptopProduct {
 
-    @NotBlank(message = "the category name cannot be null")
-    private String categoryName;
+
     @NotBlank(message = "the name of the product cannot be null")
     private String productName;
     @NotBlank(message = "the type of the laptop cannot be null")
@@ -26,8 +25,8 @@ public class LaptopProduct {
 
     public LaptopProduct(){}
 
-    public LaptopProduct(String categoryName, String productName, String laptopType, String cpuModel, String gpuModel, String memoryRamSize, String storageCapacity, double productPrice) {
-        this.categoryName = categoryName;
+    public LaptopProduct( String productName, String laptopType, String cpuModel, String gpuModel, String memoryRamSize, String storageCapacity, double productPrice) {
+
         this.productName = productName;
         this.laptopType = laptopType;
         this.cpuModel = cpuModel;
@@ -37,13 +36,7 @@ public class LaptopProduct {
         this.productPrice = productPrice;
     }
 
-    public String getCategoryName() {
-        return categoryName;
-    }
 
-    public void setCategoryName(String categoryName) {
-        this.categoryName = categoryName;
-    }
 
     public String getProductName() {
         return productName;

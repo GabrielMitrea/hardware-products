@@ -5,6 +5,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import store.Products.dto.GraphicCardProduct;
 import store.Products.entities.products.GraphicCard;
+import store.Products.mapper.ProductMapper;
 import store.Products.service.GraphicCardService;
 
 import javax.validation.Valid;
@@ -34,8 +35,8 @@ public class GraphicCardController {
 
     }
     @DeleteMapping("/delete")
-    public List<GraphicCard> deleteGraphicCard(@RequestParam int id){
-        return graphicCardService.deleteGraphicCard(id);
+    public void deleteGraphicCard(@RequestParam int id){
+        graphicCardService.deleteGraphicCard(id);
     }
 
 }

@@ -6,6 +6,9 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import store.Products.dto.OrderDto;
 import store.Products.entities.shoppingCart.Order;
+import store.Products.entities.shoppingCart.ShoppingCart;
+import store.Products.mapper.ProductMapper;
+import store.Products.mapper.ShoppingCartMapper;
 import store.Products.service.OrderService;
 
 
@@ -19,6 +22,8 @@ public class OrderController {
         @Autowired
         private OrderService orderService;
 
+       @Autowired
+        private ShoppingCartMapper shoppingCartMapper;
         @GetMapping
         public List<OrderDto> getOrder(){
             return orderService.getOrders();

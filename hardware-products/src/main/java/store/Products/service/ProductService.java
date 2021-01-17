@@ -24,8 +24,8 @@ public class ProductService {
         return productRepository.addNewProduct(product);
     }
 
-    public Product getProduct(int productId) {
-        Optional<Product> productOptional = productRepository.getProduct(productId);
+    public Product getProductById(int productId) {
+        Optional<Product> productOptional = productRepository.getProductById(productId);
         if(productOptional.isPresent()) {
             return productOptional.get();
         } else {
